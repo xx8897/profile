@@ -712,10 +712,15 @@ html, body {
       <h2>全棧 MLOps 監控體系</h2>
       <p>Prometheus + Grafana 監控 &times; Telegram 即時告警 &mdash;&mdash; 讓 AI 叢集的每個脈搏都清晰可見</p>
     </div>
-    <div class="img-showcase collage-3" style="margin-bottom:20px;">
-      <div class="img-card"><img src="images/homelab/grafana_mac_system_resource.png" alt="Mac 系統資源監控"><div class="img-card-caption">Mac M4 系統資源監控 &mdash; CPU / 記憶體 / GPU 使用率</div></div>
-      <div class="img-card"><img src="images/homelab/grafana_gpu_monitoring.png" alt="GPU 監控"><div class="img-card-caption">RTX 3070 GPU 監控 &mdash; 溫度 / VRAM / 推理佇列</div></div>
-      <div class="img-card"><img src="images/homelab/telegram_alert_bot_demo.png" alt="Telegram 告警"><div class="img-card-caption">Telegram Bot 告警 &mdash; 節點離線、GPU 高溫即時推播</div></div>
+    <div class="img-showcase collage-3" style="margin-bottom:16px;">
+      <div class="img-card"><img src="images/homelab/grafana/grafana_mac_system_resource.png" alt="Mac 系統資源監控"><div class="img-card-caption">Mac M4 系統資源監控 &mdash; CPU / 記憶體 / GPU 使用率</div></div>
+      <div class="img-card"><img src="images/homelab/grafana/grafana_gpu_monitoring.png" alt="GPU 監控"><div class="img-card-caption">RTX 3070 GPU 監控 &mdash; 溫度 / VRAM / 推理佇列</div></div>
+      <div class="img-card"><img src="images/homelab/grafana/grafana_docker_container_monitoring.png" alt="Docker 容器監控"><div class="img-card-caption">Docker 容器監控 &mdash; 7 容器統一管理與健康狀態</div></div>
+    </div>
+    <div class="img-showcase collage-3">
+      <div class="img-card"><img src="images/homelab/grafana/grafana_litellm_monitoring.png" alt="LiteLLM 監控"><div class="img-card-caption">LiteLLM Proxy 監控 &mdash; API 路由與負載均衡</div></div>
+      <div class="img-card"><img src="images/homelab/grafana/grafana_tailscale_network.png" alt="Tailscale 網路"><div class="img-card-caption">Tailscale Mesh VPN &mdash; 三機互聯與網路拓撲</div></div>
+      <div class="img-card"><img src="images/homelab/hermes/telegram_alert_bot_demo.png" alt="Telegram 告警"><div class="img-card-caption">Telegram Bot 告警 &mdash; 節點離線、GPU 高溫即時推播</div></div>
     </div>
     <div class="stat-row" style="justify-content:center;">
       <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Grafana Dashboard</div></div>
@@ -885,8 +890,9 @@ html, body {
         </div>
       </div>
       <div>
-        <div class="product-screenshot" style="margin-bottom:12px;"><img src="images/stock/twstock_homepage_hero_ranking.png" alt="首頁排行榜"></div>
-        <div class="product-screenshot"><img src="images/stock/twstock_main_table_5star_filter.png" alt="五星篩選"></div>
+        <div class="product-screenshot" style="margin-bottom:8px;"><img src="images/stock/twstock_homepage_hero_ranking.png" alt="首頁排行榜"></div>
+        <div class="product-screenshot" style="margin-bottom:8px;"><img src="images/stock/twstock_main_table_5star_filter.png" alt="五星篩選"></div>
+        <div class="product-screenshot"><img src="images/stock/twstock_valuation_model_explanation.png" alt="估價模型說明"></div>
       </div>
     </div>
   </div>
@@ -908,6 +914,7 @@ html, body {
         </div>
         <div style="margin-top:16px;">
           <div class="product-screenshot"><img src="images/stock/twstock_gift_tree_readme_algorithm.png" alt="DFS 演算法"></div>
+          <div class="product-screenshot" style="margin-top:8px;"><img src="images/stock/twstock_table_owned_gifts_guide.png" alt="持有股紀念品指南"></div>
         </div>
       </div>
       <div>
@@ -1046,9 +1053,10 @@ html, body {
         </div>
       </div>
       <div>
-        <div class="img-showcase collage-2">
+        <div class="img-showcase collage-3">
           <div class="img-card"><img src="images/exhibit/exhibit_homepage_hero_carousel.png" alt="Exhibit 首頁"><div class="img-card-caption">首頁輪播 &mdash; 精選展覽推薦</div></div>
           <div class="img-card"><img src="images/exhibit/exhibit_detail_page_ai_category.png" alt="AI 分類"><div class="img-card-caption">AI 智慧分類 &mdash; 信心度動態建議</div></div>
+          <div class="img-card"><img src="images/exhibit/exhibit_detail_page_map_section.png" alt="地圖導航"><div class="img-card-caption">展覽地圖 &mdash; 地理位置與交通資訊</div></div>
         </div>
         <div class="problem-section" style="margin-top:16px; border-left:4px solid var(--primary);"><div class="problem-title">&#x1F4CA; 專案數據</div><div class="stat-row" style="margin:0;"><div class="stat-item" style="text-align:left;"><div class="stat-num" style="font-size:24px;">0&rarr;1</div><div class="stat-label">從構想到上線全程主導</div></div><div class="stat-item" style="text-align:left;"><div class="stat-num" style="font-size:24px;">4+</div><div class="stat-label">分類色彩系統</div></div></div></div>
       </div>

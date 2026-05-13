@@ -1,0 +1,63 @@
+<!-- ===== SLIDE: HOMELAB DESIGN PHILOSOPHY & ARCHITECTURE ===== -->
+<div class="slide bg-light is-light">
+  <div class="slide-inner" style="max-width: 1400px;">
+    <div class="content-header">
+      <div class="section-label">HOMELAB AI STACK &mdash; PHILOSOPHY & ARCHITECTURE</div>
+      <h2>設計哲學與 Supervisor-Worker 架構落地</h2>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start;">
+      <!-- Left: Philosophy -->
+      <div>
+        <div class="problem-section" style="background: linear-gradient(135deg, #f8f9fb, #eef2ff); border-color: #c7d2e8; height: 100%;">
+          <div style="font-size:16px; line-height:1.8; color:var(--text-sec); margin-bottom:24px;">
+            <h3 style="color: var(--primary-dark); margin-bottom: 12px; font-size: 18px;">大學長帶高中生</h3>
+            不把所有推理都塞到最強的模型上。而是讓<strong>35B 大模型（Mac M4）</strong>負責策略規劃與審核，讓<strong>4B 小模型（RTX 3070）</strong>處理格式化執行與摘要。Worker 失敗時 Supervisor 親自下場，而非切換到其他小模型。
+          </div>
+          <div class="stat-row" style="flex-direction: column; gap: 20px;">
+            <div class="stat-item" style="text-align: left; display: flex; align-items: baseline; gap: 12px;">
+              <div class="stat-num" style="font-size: 40px;">3</div><div class="stat-label">台異質設備協同</div>
+            </div>
+            <div class="stat-item" style="text-align: left; display: flex; align-items: baseline; gap: 12px;">
+              <div class="stat-num" style="font-size: 40px;">&gt;95%</div><div class="stat-label">本地處理率</div>
+            </div>
+            <div class="stat-item" style="text-align: left; display: flex; align-items: baseline; gap: 12px;">
+              <div class="stat-num" style="font-size: 40px;">0</div><div class="stat-label">月度 API 成本</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Architecture -->
+      <div>
+        <div class="arch-diagram">
+          <div class="arch-layer" style="border-left-color:var(--accent); background:linear-gradient(135deg,#e6f5f1,#f0fdf8);">
+            <div class="arch-layer-label">&#x1F916; 智能體層</div>
+            <div class="arch-layer-content"><strong>Hermes Agent</strong> &mdash; Fallback / Delegation / Auxiliary 決策</div>
+          </div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">&#x1F310; 代理層</div>
+            <div class="arch-layer-content"><strong>LiteLLM Proxy</strong> &mdash; 負載均衡 / API Key 管理 / 雲端容錯路由</div>
+          </div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:var(--warning); background:#fffbeb;">
+            <div class="arch-layer-label">&#x26A1; 推理引擎層</div>
+            <div class="arch-layer-content"><strong>Mac M4</strong>：35B MoE (主力) &nbsp;|&nbsp; <strong>3070-A</strong>：4B+Embed &nbsp;|&nbsp; <strong>3070-B</strong>：4B</div>
+          </div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:#8b5cf6; background:#f5f3ff;">
+            <div class="arch-layer-label">&#x1F4CA; 監控層</div>
+            <div class="arch-layer-content"><strong>Prometheus + Grafana</strong> &times; 5 Dashboard + Telegram Bot &times; 6 Alert Rules</div>
+          </div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:#64748b; background:#f8fafc;">
+            <div class="arch-layer-label">&#x1F517; 網路層</div>
+            <div class="arch-layer-content"><strong>Tailscale Mesh VPN</strong> &mdash; WireGuard 加密 / NAT 穿透 / 三機互聯</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num"></div>
+</div>

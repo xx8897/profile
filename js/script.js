@@ -32,6 +32,7 @@ const portfolioConfig = [
       "slides/etf/etf-ai-rag-pipeline.html",
       "slides/etf/etf-ai-product---wizard.html",
       "slides/etf/etf-ai-product---report.html",
+      "slides/etf/etf-ai-backend.html",
       "slides/etf/etf-ai-summary.html"
     ]
   },
@@ -45,6 +46,7 @@ const portfolioConfig = [
       "slides/stock/stock-gift-product-details-2.html",
       "slides/stock/stock-gift-tech---refactor.html",
       "slides/stock/stock-gift-tech---serverless.html",
+      "slides/stock/stock-gift-automation.html",
       "slides/stock/stock-gift-summary.html"
     ]
   },
@@ -65,7 +67,8 @@ const portfolioConfig = [
       "slides/misc/exhibit-chapter.html",
       "slides/misc/exhibit-1.html",
       "slides/misc/exhibit-2.html",
-      "slides/misc/exhibit-3.html"
+      "slides/misc/exhibit-3.html",
+      "slides/misc/exhibit-tech.html"
     ]
   },
   {

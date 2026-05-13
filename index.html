@@ -75,17 +75,17 @@ html, body {
 
 .nav-dots {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 8px; z-index: 100;
+  display: flex; gap: 6px; z-index: 100; flex-wrap: wrap; justify-content: center; max-width: 80vw;
 }
 
 .nav-dot {
-  width: 8px; height: 8px; border-radius: 50%;
+  width: 6px; height: 6px; border-radius: 50%;
   background: rgba(255,255,255,0.3); cursor: pointer;
   transition: all 0.3s;
   border: none; outline: none;
 }
 
-.nav-dot.active { background: var(--accent); transform: scale(1.3); }
+.nav-dot.active { background: var(--accent); transform: scale(1.4); }
 .slide.is-light .nav-dot { background: rgba(0,0,0,0.2); }
 .slide.is-light .nav-dot.active { background: var(--primary); }
 
@@ -352,7 +352,7 @@ html, body {
   background: #fff;
 }
 
-.img-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.img-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
 .img-card-caption { padding: 10px 14px; font-size: 12px; color: var(--text-sec); background: #f8f9fb; border-top: 1px solid #e8ecf2; }
 
 /* ===== SUMMARY CARDS ===== */
@@ -510,7 +510,7 @@ html, body {
       <img src="images/photo.jpg" alt="黃至祥" onerror="this.parentElement.style.display='none'">
     </div>
   </div>
-  <div class="slide-num">01 / 20</div>
+  <div class="slide-num">01 / 40</div>
 </div>
 
 <!-- ===== SLIDE 2: SKILLS ===== -->
@@ -581,7 +581,7 @@ html, body {
       </div>
     </div>
   </div>
-  <div class="slide-num">02 / 20</div>
+  <div class="slide-num">02 / 40</div>
 </div>
 
 <!-- ===== SLIDE 3: HOMELAB CHAPTER ===== -->
@@ -595,10 +595,10 @@ html, body {
       <span class="chapter-tech-tag">LM Studio</span><span class="chapter-tech-tag">LiteLLM</span><span class="chapter-tech-tag">Docker</span><span class="chapter-tech-tag">Tailscale</span><span class="chapter-tech-tag">Prometheus</span><span class="chapter-tech-tag">Grafana</span><span class="chapter-tech-tag">Telegram Bot</span><span class="chapter-tech-tag">Python</span>
     </div>
   </div>
-  <div class="slide-num">03 / 20</div>
+  <div class="slide-num">03 / 40</div>
 </div>
 
-<!-- ===== SLIDE 4: HOMELAB PROBLEM ===== -->
+<!-- ===== SLIDE 4: HOMELAB PAIN POINTS ===== -->
 <div class="slide bg-light is-light" data-index="3">
   <div class="slide-inner">
     <div class="content-header">
@@ -617,9 +617,11 @@ html, body {
             <li>缺乏端到端監控，無法掌握推理延遲與資源使用狀況</li>
           </ul>
         </div>
-        <div class="problem-section">
+      </div>
+      <div>
+        <div class="problem-section" style="border-left: 4px solid var(--success);">
           <div class="problem-title"><span class="icon">&#x1F3AF;</span> 目標</div>
-          <ul class="problem-list insight">
+          <ul class="problem-list solve">
             <li>日常 AI 使用<strong>零 API 費用</strong>、<strong>零資料外洩</strong></li>
             <li>建構 Supervisor-Worker 分層架構，大模型做規劃、小模型做執行</li>
             <li>實現全棧 MLOps 監控：任何節點異常立即告警</li>
@@ -627,56 +629,75 @@ html, body {
           </ul>
         </div>
       </div>
-      <div>
-        <div class="problem-section" style="background: linear-gradient(135deg, #f8f9fb, #eef2ff); border-color: #c7d2e8;">
-          <div class="problem-title"><span class="icon">&#x1F9E9;</span> 設計哲學：大學長帶高中生</div>
-          <div style="font-size:14px; line-height:1.8; color:var(--text-sec); margin-bottom:16px;">不把所有推理都塞到最強的模型上。而是讓<strong>35B 大模型（Mac M4）</strong>負責策略規劃與審核，讓<strong>4B 小模型（RTX 3070）</strong>處理格式化執行與摘要。Worker 失敗時 Supervisor 親自下場，而非切換到其他小模型。</div>
-          <div class="stat-row">
-            <div class="stat-item" style="text-align:left;"><div class="stat-num">3</div><div class="stat-label">台異質設備協同</div></div>
-            <div class="stat-item" style="text-align:left;"><div class="stat-num">&gt;95%</div><div class="stat-label">本地處理率</div></div>
-            <div class="stat-item" style="text-align:left;"><div class="stat-num">0</div><div class="stat-label">月度 API 成本</div></div>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 40</div>
+</div>
+
+<!-- ===== SLIDE 5: HOMELAB DESIGN PHILOSOPHY ===== -->
+<div class="slide bg-light is-light" data-index="4">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">HOMELAB AI STACK &mdash; PHILOSOPHY</div>
+      <h2>設計哲學：大學長帶高中生</h2>
+    </div>
+    <div class="problem-section" style="background: linear-gradient(135deg, #f8f9fb, #eef2ff); border-color: #c7d2e8; max-width: 800px; margin: 0 auto;">
+      <div style="font-size:15px; line-height:1.8; color:var(--text-sec); margin-bottom:20px;">不把所有推理都塞到最強的模型上。而是讓<strong>35B 大模型（Mac M4）</strong>負責策略規劃與審核，讓<strong>4B 小模型（RTX 3070）</strong>處理格式化執行與摘要。Worker 失敗時 Supervisor 親自下場，而非切換到其他小模型。</div>
+      <div class="stat-row" style="justify-content:center;">
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">台異質設備協同</div></div>
+        <div class="stat-item"><div class="stat-num">&gt;95%</div><div class="stat-label">本地處理率</div></div>
+        <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">月度 API 成本</div></div>
       </div>
     </div>
   </div>
-  <div class="slide-num">04 / 20</div>
+  <div class="slide-num">05 / 40</div>
 </div>
 
-<!-- ===== SLIDE 5: HOMELAB ARCHITECTURE ===== -->
-<div class="slide bg-light is-light" data-index="4">
+<!-- ===== SLIDE 6: HOMELAB ARCHITECTURE ===== -->
+<div class="slide bg-light is-light" data-index="5">
   <div class="slide-inner">
     <div class="content-header">
       <div class="section-label">HOMELAB AI STACK &mdash; ARCHITECTURE</div>
       <h2>Supervisor-Worker 分層架構設計</h2>
     </div>
-    <div class="two-col">
-      <div class="arch-diagram">
-        <div class="arch-layer" style="border-left-color:var(--accent); background:linear-gradient(135deg,#e6f5f1,#f0fdf8);">
-          <div class="arch-layer-label">&#x1F916; 智能體層</div>
-          <div class="arch-layer-content"><strong>Hermes Agent</strong> &mdash; Fallback / Delegation / Auxiliary 決策</div>
-        </div>
-        <div class="arch-arrow">&#x2195;</div>
-        <div class="arch-layer">
-          <div class="arch-layer-label">&#x1F310; 代理層</div>
-          <div class="arch-layer-content"><strong>LiteLLM Proxy</strong> &mdash; 負載均衡 / API Key 管理 / 雲端容錯路由</div>
-        </div>
-        <div class="arch-arrow">&#x2195;</div>
-        <div class="arch-layer" style="border-left-color:var(--warning); background:#fffbeb;">
-          <div class="arch-layer-label">&#x26A1; 推理引擎層</div>
-          <div class="arch-layer-content"><strong>Mac M4</strong>：35B MoE (主力) &nbsp;|&nbsp; <strong>3070-A</strong>：4B+Embed &nbsp;|&nbsp; <strong>3070-B</strong>：4B</div>
-        </div>
-        <div class="arch-arrow">&#x2195;</div>
-        <div class="arch-layer" style="border-left-color:#8b5cf6; background:#f5f3ff;">
-          <div class="arch-layer-label">&#x1F4CA; 監控層</div>
-          <div class="arch-layer-content"><strong>Prometheus + Grafana</strong> &times; 5 Dashboard + Telegram Bot &times; 6 Alert Rules</div>
-        </div>
-        <div class="arch-arrow">&#x2195;</div>
-        <div class="arch-layer" style="border-left-color:#64748b; background:#f8fafc;">
-          <div class="arch-layer-label">&#x1F517; 網路層</div>
-          <div class="arch-layer-content"><strong>Tailscale Mesh VPN</strong> &mdash; WireGuard 加密 / NAT 穿透 / 三機互聯</div>
-        </div>
+    <div class="arch-diagram" style="max-width:900px; margin:0 auto;">
+      <div class="arch-layer" style="border-left-color:var(--accent); background:linear-gradient(135deg,#e6f5f1,#f0fdf8);">
+        <div class="arch-layer-label">&#x1F916; 智能體層</div>
+        <div class="arch-layer-content"><strong>Hermes Agent</strong> &mdash; Fallback / Delegation / Auxiliary 決策</div>
       </div>
+      <div class="arch-arrow">&#x2195;</div>
+      <div class="arch-layer">
+        <div class="arch-layer-label">&#x1F310; 代理層</div>
+        <div class="arch-layer-content"><strong>LiteLLM Proxy</strong> &mdash; 負載均衡 / API Key 管理 / 雲端容錯路由</div>
+      </div>
+      <div class="arch-arrow">&#x2195;</div>
+      <div class="arch-layer" style="border-left-color:var(--warning); background:#fffbeb;">
+        <div class="arch-layer-label">&#x26A1; 推理引擎層</div>
+        <div class="arch-layer-content"><strong>Mac M4</strong>：35B MoE (主力) &nbsp;|&nbsp; <strong>3070-A</strong>：4B+Embed &nbsp;|&nbsp; <strong>3070-B</strong>：4B</div>
+      </div>
+      <div class="arch-arrow">&#x2195;</div>
+      <div class="arch-layer" style="border-left-color:#8b5cf6; background:#f5f3ff;">
+        <div class="arch-layer-label">&#x1F4CA; 監控層</div>
+        <div class="arch-layer-content"><strong>Prometheus + Grafana</strong> &times; 5 Dashboard + Telegram Bot &times; 6 Alert Rules</div>
+      </div>
+      <div class="arch-arrow">&#x2195;</div>
+      <div class="arch-layer" style="border-left-color:#64748b; background:#f8fafc;">
+        <div class="arch-layer-label">&#x1F517; 網路層</div>
+        <div class="arch-layer-content"><strong>Tailscale Mesh VPN</strong> &mdash; WireGuard 加密 / NAT 穿透 / 三機互聯</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 40</div>
+</div>
+
+<!-- ===== SLIDE 7: HOMELAB FALLBACK & MOE ===== -->
+<div class="slide bg-light is-light" data-index="6">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">HOMELAB AI STACK &mdash; RESILIENCE</div>
+      <h2>三層 Fallback 機制 &amp; MoE 精算部署</h2>
+    </div>
+    <div class="two-col">
       <div>
         <div class="problem-section" style="border-left: 4px solid var(--accent);">
           <div class="problem-title">&#x1F504; 三層 Fallback 機制</div>
@@ -694,6 +715,8 @@ html, body {
             <div style="font-size:13px; color:var(--text-sec);">DeepSeek V4 Flash &rarr; Pro &mdash; 本地全離線時保底</div>
           </div>
         </div>
+      </div>
+      <div>
         <div class="problem-section" style="border-left: 4px solid var(--primary);">
           <div class="problem-title">&#x1F4A1; MoE 精算部署</div>
           <div style="font-size:14px; line-height:1.7; color:var(--text-sec);">Qwen3.6-35B-A3B 採用 Mixture-of-Experts 架構，IQ3_M 量化後僅 ~14GB，裝入 Mac 24GB 統一記憶體，<strong>以 3B 計算量獲得 35B 推理能力</strong>，實現消費級硬體上的大模型推理。</div>
@@ -701,24 +724,38 @@ html, body {
       </div>
     </div>
   </div>
-  <div class="slide-num">05 / 20</div>
+  <div class="slide-num">07 / 40</div>
 </div>
 
-<!-- ===== SLIDE 6: HOMELAB MONITORING ===== -->
-<div class="slide bg-light is-light" data-index="5">
+<!-- ===== SLIDE 8: HOMELAB MONITORING - GRAFANA ===== -->
+<div class="slide bg-light is-light" data-index="7">
   <div class="slide-inner">
     <div class="content-header">
       <div class="section-label">HOMELAB AI STACK &mdash; MLOPS</div>
-      <h2>全棧 MLOps 監控體系</h2>
-      <p>Prometheus + Grafana 監控 &times; Telegram 即時告警 &mdash;&mdash; 讓 AI 叢集的每個脈搏都清晰可見</p>
+      <h2>全棧 MLOps 監控：Grafana Dashboard</h2>
+      <p>Prometheus + Grafana 監控 &mdash;&mdash; 5 個自訂 Dashboard，讓 AI 叢集的每個脈搏都清晰可見</p>
     </div>
-    <div class="img-showcase collage-3" style="margin-bottom:16px;">
+    <div class="img-showcase collage-2" style="margin-bottom:16px;">
       <div class="img-card"><img src="images/homelab/grafana/grafana_mac_system_resource.png" alt="Mac 系統資源監控"><div class="img-card-caption">Mac M4 系統資源監控 &mdash; CPU / 記憶體 / GPU 使用率</div></div>
       <div class="img-card"><img src="images/homelab/grafana/grafana_gpu_monitoring.png" alt="GPU 監控"><div class="img-card-caption">RTX 3070 GPU 監控 &mdash; 溫度 / VRAM / 推理佇列</div></div>
-      <div class="img-card"><img src="images/homelab/grafana/grafana_docker_container_monitoring.png" alt="Docker 容器監控"><div class="img-card-caption">Docker 容器監控 &mdash; 7 容器統一管理與健康狀態</div></div>
     </div>
-    <div class="img-showcase collage-3">
+    <div class="img-showcase collage-2">
+      <div class="img-card"><img src="images/homelab/grafana/grafana_docker_container_monitoring.png" alt="Docker 容器監控"><div class="img-card-caption">Docker 容器監控 &mdash; 7 容器統一管理與健康狀態</div></div>
       <div class="img-card"><img src="images/homelab/grafana/grafana_litellm_monitoring.png" alt="LiteLLM 監控"><div class="img-card-caption">LiteLLM Proxy 監控 &mdash; API 路由與負載均衡</div></div>
+    </div>
+  </div>
+  <div class="slide-num">08 / 40</div>
+</div>
+
+<!-- ===== SLIDE 9: HOMELAB MONITORING - NETWORK & ALERT ===== -->
+<div class="slide bg-light is-light" data-index="8">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">HOMELAB AI STACK &mdash; MLOPS</div>
+      <h2>網路監控 &amp; 即時告警</h2>
+      <p>Tailscale Mesh VPN 網路拓撲監控 + Telegram Bot 即時告警 &mdash;&mdash; 任何節點異常立即推播</p>
+    </div>
+    <div class="img-showcase collage-2" style="margin-bottom:24px;">
       <div class="img-card"><img src="images/homelab/grafana/grafana_tailscale_network.png" alt="Tailscale 網路"><div class="img-card-caption">Tailscale Mesh VPN &mdash; 三機互聯與網路拓撲</div></div>
       <div class="img-card"><img src="images/homelab/hermes/telegram_alert_bot_demo.png" alt="Telegram 告警"><div class="img-card-caption">Telegram Bot 告警 &mdash; 節點離線、GPU 高溫即時推播</div></div>
     </div>
@@ -730,11 +767,52 @@ html, body {
       <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Worker 互備率</div></div>
     </div>
   </div>
-  <div class="slide-num">06 / 20</div>
+  <div class="slide-num">09 / 40</div>
 </div>
 
-<!-- ===== SLIDE 7: HOMELAB SUMMARY ===== -->
-<div class="slide bg-dark-grid" data-index="6">
+<!-- ===== SLIDE 10: HERMES AGENT ===== -->
+<div class="slide bg-light is-light" data-index="9">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">HOMELAB AI STACK &mdash; HERMES</div>
+      <h2>Hermes Agent：智能體調度與 Fallback 管理</h2>
+      <p>Supervisor-Worker 分層架構的核心大腦 &mdash;&mdash; 負責決策、委派與降級路由</p>
+    </div>
+    <div class="img-showcase collage-3">
+      <div class="img-card"><img src="images/homelab/hermes/hermes_dashboard_web_ui.png" alt="Hermes Dashboard"><div class="img-card-caption">Hermes Dashboard &mdash; 智能體調度主控台</div></div>
+      <div class="img-card"><img src="images/homelab/hermes/hermes_dashboard_analytics_zh.png" alt="Hermes Analytics"><div class="img-card-caption">Hermes Analytics &mdash; 使用量分析與成本追蹤</div></div>
+      <div class="img-card"><img src="images/homelab/hermes/hermes_model_switch_worker.png" alt="Model Switch"><div class="img-card-caption">Model Switch &mdash; Worker 切換與 Fallback 路由</div></div>
+    </div>
+  </div>
+  <div class="slide-num">10 / 40</div>
+</div>
+
+<!-- ===== SLIDE 11: HOMELAB LITELLM ===== -->
+<div class="slide bg-light is-light" data-index="10">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">HOMELAB AI STACK &mdash; LITELLM</div>
+      <h2>LiteLLM Proxy：多模型負載均衡</h2>
+      <p>統一 API 介面，管理多個本地與雲端模型的負載均衡、容錯路由與 API Key 管理</p>
+    </div>
+    <div class="img-showcase collage-2" style="margin-bottom:20px;">
+      <div class="img-card"><img src="images/homelab/litellm/litellm_ui_models_list.png" alt="LiteLLM Models"><div class="img-card-caption">LiteLLM UI &mdash; 多模型管理與狀態一覽</div></div>
+      <div class="img-card"><img src="images/homelab/grafana/grafana_litellm_monitoring.png" alt="LiteLLM Grafana"><div class="img-card-caption">Grafana &mdash; LiteLLM Proxy 監控儀表板</div></div>
+    </div>
+    <div class="problem-section" style="border-left: 4px solid var(--accent);">
+      <div class="problem-title">&#x1F517; LiteLLM 核心功能</div>
+      <ul class="problem-list solve">
+        <li>統一 OpenAI 格式 API 介面，讓前端無感切換不同模型後端</li>
+        <li>自動 Fallback 路由：L1 本地主力和 L2 本地 Worker 失敗時，自動降級</li>
+        <li>API Key 統一管理，前端只需一個端點即可使用所有模型</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">11 / 40</div>
+</div>
+
+<!-- ===== SLIDE 12: HOMELAB SUMMARY ===== -->
+<div class="slide bg-dark-grid" data-index="11">
   <div class="slide-inner" style="max-width:900px; margin:0 auto;">
     <div style="text-align:center; margin-bottom:40px;">
       <div class="section-label">HOMELAB AI STACK &mdash; KEY RESULTS</div>
@@ -763,11 +841,11 @@ html, body {
       </div>
     </div>
   </div>
-  <div class="slide-num">07 / 20</div>
+  <div class="slide-num">12 / 40</div>
 </div>
 
-<!-- ===== SLIDE 8: ETF AI CHAPTER ===== -->
-<div class="slide bg-dark-accent" data-index="7">
+<!-- ===== SLIDE 13: ETF AI CHAPTER ===== -->
+<div class="slide bg-dark-accent" data-index="12">
   <div class="chapter-container">
     <div class="chapter-number">02</div>
     <div class="chapter-label">PROJECT 02</div>
@@ -777,26 +855,38 @@ html, body {
       <span class="chapter-tech-tag">Python</span><span class="chapter-tech-tag">ChromaDB</span><span class="chapter-tech-tag">Flutter</span><span class="chapter-tech-tag">Dart Frog</span><span class="chapter-tech-tag">OpenAI API</span><span class="chapter-tech-tag">GPT-4o</span>
     </div>
   </div>
-  <div class="slide-num">08 / 20</div>
+  <div class="slide-num">13 / 40</div>
 </div>
 
-<!-- ===== SLIDE 9: ETF AI PROBLEM & RAG ===== -->
-<div class="slide bg-light is-light" data-index="8">
+<!-- ===== SLIDE 14: ETF AI PAIN POINTS ===== -->
+<div class="slide bg-light is-light" data-index="13">
   <div class="slide-inner">
     <div class="content-header">
       <div class="section-label">ETF AI ADVISOR</div>
-      <h2>痛點分析 &amp; RAG 解決方案</h2>
+      <h2>投資人的痛點</h2>
+      <p>台股 ETF 種類繁多，散戶不知如何選擇 &mdash;&mdash; 沒有系統能把「我的投資哲學」轉化為具體建議</p>
+    </div>
+    <div class="problem-section">
+      <div class="problem-title"><span class="icon">&#x1F614;</span> 投資人的痛點</div>
+      <ul class="problem-list pain">
+        <li>台股 ETF 種類繁多，散戶不知如何選擇</li>
+        <li>傳統篩選工具只看數字，無法理解投資人的<strong>主觀偏好與風險承受度</strong></li>
+        <li>沒有系統能把「我的投資哲學」轉化為「具體的 ETF 組合建議」</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">14 / 40</div>
+</div>
+
+<!-- ===== SLIDE 15: ETF AI RAG PIPELINE ===== -->
+<div class="slide bg-light is-light" data-index="14">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">ETF AI ADVISOR &mdash; SOLUTION</div>
+      <h2>RAG 解決方案 &amp; 管線流程</h2>
     </div>
     <div class="two-col">
       <div>
-        <div class="problem-section">
-          <div class="problem-title"><span class="icon">&#x1F614;</span> 投資人的痛點</div>
-          <ul class="problem-list pain">
-            <li>台股 ETF 種類繁多，散戶不知如何選擇</li>
-            <li>傳統篩選工具只看數字，無法理解投資人的<strong>主觀偏好與風險承受度</strong></li>
-            <li>沒有系統能把「我的投資哲學」轉化為「具體的 ETF 組合建議」</li>
-          </ul>
-        </div>
         <div class="problem-section" style="border-left: 4px solid var(--success);">
           <div class="problem-title"><span class="icon">&#x2705;</span> RAG 解決方案</div>
           <ul class="problem-list solve">
@@ -832,31 +922,43 @@ html, body {
       </div>
     </div>
   </div>
-  <div class="slide-num">09 / 20</div>
+  <div class="slide-num">15 / 40</div>
 </div>
 
-<!-- ===== SLIDE 10: ETF AI PRODUCT ===== -->
-<div class="slide bg-light is-light" data-index="9">
+<!-- ===== SLIDE 16: ETF AI PRODUCT - WIZARD ===== -->
+<div class="slide bg-light is-light" data-index="15">
   <div class="slide-inner">
     <div class="content-header">
       <div class="section-label">ETF AI ADVISOR &mdash; PRODUCT</div>
-      <h2>產品展示</h2>
-      <p>從風險偏好設定到 AI 投資報告，完整的使用者旅程</p>
+      <h2>產品展示：偏好設定 Wizard</h2>
+      <p>從風險偏好到主題權重 &mdash;&mdash; 引導式流程讓 AI 理解你的投資 DNA</p>
     </div>
-    <div class="img-showcase collage-2" style="margin-bottom:20px;">
+    <div class="img-showcase collage-2">
       <div class="img-card"><img src="images/etf/etf_wizard_step1_risk_profile.png" alt="風險偏好設定"><div class="img-card-caption">Step 1：風險偏好設定 &mdash; 保守 / 穩健 / 積極</div></div>
       <div class="img-card"><img src="images/etf/etf_wizard_step2_theme_weights.png" alt="主題權重配置"><div class="img-card-caption">Step 2：主題權重配置 &mdash; 拖曳滑桿分配投資偏好</div></div>
+    </div>
+  </div>
+  <div class="slide-num">16 / 40</div>
+</div>
+
+<!-- ===== SLIDE 17: ETF AI PRODUCT - REPORT ===== -->
+<div class="slide bg-light is-light" data-index="16">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">ETF AI ADVISOR &mdash; PRODUCT</div>
+      <h2>產品展示：AI 投資報告</h2>
+      <p>GPT-4o 生成個人化投資組合建議 &mdash;&mdash; 從資產配置到持股明細，一目了然</p>
     </div>
     <div class="img-showcase collage-2">
       <div class="img-card"><img src="images/etf/etf_report_portfolio_recommendation.png" alt="AI 投資組合報告"><div class="img-card-caption">AI 報告：個人化投資組合建議與資產配置圓餅圖</div></div>
       <div class="img-card"><img src="images/etf/etf_report_combined_holdings_breakdown.png" alt="持股明細分析"><div class="img-card-caption">持股明細：ETF 成份股加權分佈與量化指標</div></div>
     </div>
   </div>
-  <div class="slide-num">10 / 20</div>
+  <div class="slide-num">17 / 40</div>
 </div>
 
-<!-- ===== SLIDE 11: ETF AI SUMMARY ===== -->
-<div class="slide bg-dark-grid" data-index="10">
+<!-- ===== SLIDE 18: ETF AI SUMMARY ===== -->
+<div class="slide bg-dark-grid" data-index="17">
   <div class="slide-inner" style="max-width:900px; margin:0 auto;">
     <div style="text-align:center; margin-bottom:40px;">
       <div class="section-label">ETF AI ADVISOR &mdash; KEY RESULTS</div>
@@ -869,54 +971,107 @@ html, body {
       <div class="summary-card"><div class="summary-card-icon">&#x1F4D0;</div><div class="summary-card-title">架構演進與收斂</div><div class="summary-card-desc">從 Streamlit 原型到 Flutter 微服務，從多源 API 探索到單一事實來源。每次重構都有明確的技術決策紀錄，展現持續優化的工程思維。</div></div>
     </div>
   </div>
-  <div class="slide-num">11 / 20</div>
+  <div class="slide-num">18 / 40</div>
 </div>
 
-<!-- ===== SLIDE 12: STOCK GIFT ===== -->
-<div class="slide bg-light is-light" data-index="11">
+<!-- ===== SLIDE 19: STOCK GIFT CHAPTER ===== -->
+<div class="slide bg-dark-accent" data-index="18">
+  <div class="chapter-container">
+    <div class="chapter-number">03</div>
+    <div class="chapter-label">PROJECT 03</div>
+    <div class="chapter-title">台股股東會紀念品<br>投資決策系統</div>
+    <div class="chapter-desc">散戶導向的股東會紀念品 ROI 評估平台 &mdash;&mdash; 已上線運營</div>
+    <div class="chapter-tech">
+      <span class="chapter-tech-tag">React</span><span class="chapter-tech-tag">Supabase</span><span class="chapter-tech-tag">GitHub Actions</span><span class="chapter-tech-tag">FinMind API</span><span class="chapter-tech-tag">Vercel</span>
+    </div>
+  </div>
+  <div class="slide-num">19 / 40</div>
+</div>
+
+<!-- ===== SLIDE 20: STOCK GIFT PAIN POINTS ===== -->
+<div class="slide bg-light is-light" data-index="19">
   <div class="slide-inner">
     <div class="content-header">
-      <div class="section-label">PROJECT 03</div>
-      <h2>台股股東會紀念品投資決策系統</h2>
-      <p>散戶導向的股東會紀念品 ROI 評估平台 &mdash;&mdash; 已上線運營</p>
+      <div class="section-label">STOCK GIFT EVALUATOR</div>
+      <h2>散戶的痛點</h2>
+      <p>台灣 800+ 檔股票發放股東會紀念品，不知哪支最划算</p>
     </div>
     <div class="two-col">
       <div>
-        <div class="problem-section"><div class="problem-title"><span class="icon">&#x1F614;</span> 散戶的痛點</div><ul class="problem-list pain"><li>台灣 800+ 檔股票發放股東會紀念品，不知哪支最划算</li><li>每檔紀念品實際市價難以估算，缺乏系統化比較工具</li><li>新聞資訊零散，需要一站式的自動化評估平台</li></ul></div>
+        <div class="problem-section"><div class="problem-title"><span class="icon">&#x1F614;</span> 痛點</div><ul class="problem-list pain"><li>台灣 800+ 檔股票發放股東會紀念品，不知哪支最划算</li><li>每檔紀念品實際市價難以估算，缺乏系統化比較工具</li><li>新聞資訊零散，需要一站式的自動化評估平台</li></ul></div>
+      </div>
+      <div>
         <div class="problem-section" style="border-left:4px solid var(--success);"><div class="problem-title"><span class="icon">&#x2705;</span> 解決方案</div><ul class="problem-list solve"><li>V5 知識樹引擎：JSON 樹狀 DFS 演算法，商業邏輯與知識庫完全解耦</li><li>Serverless 架構：月維護成本趨近零</li><li>Google OAuth 登入、跨裝置同步、30 日關注排行榜</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">20 / 40</div>
+</div>
+
+<!-- ===== SLIDE 21: STOCK GIFT PRODUCT - HOMEPAGE ===== -->
+<div class="slide bg-light is-light" data-index="20">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">STOCK GIFT EVALUATOR &mdash; PRODUCT</div>
+      <h2>產品展示：首頁 &amp; 排行榜</h2>
+    </div>
+    <div class="two-col">
+      <div>
         <div style="margin-top:16px;">
           <a href="https://tw-stock-gift-evaluator.vercel.app/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:var(--primary);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">&#x1F310; Demo 網站</a>
           <a href="https://github.com/xx8897/tw-stock-gift-evaluator" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:var(--dark-3);color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;margin-left:8px;">&#x1F4BB; GitHub</a>
         </div>
       </div>
       <div>
-        <div class="product-screenshot" style="margin-bottom:8px;"><img src="images/stock/twstock_homepage_hero_ranking.png" alt="首頁排行榜"></div>
-        <div class="product-screenshot" style="margin-bottom:8px;"><img src="images/stock/twstock_main_table_5star_filter.png" alt="五星篩選"></div>
-        <div class="product-screenshot"><img src="images/stock/twstock_valuation_model_explanation.png" alt="估價模型說明"></div>
+        <div class="product-screenshot" style="margin-bottom:12px;"><img src="images/stock/twstock_homepage_hero_ranking.png" alt="首頁排行榜"></div>
       </div>
     </div>
   </div>
-  <div class="slide-num">12 / 20</div>
+  <div class="slide-num">21 / 40</div>
 </div>
 
-<!-- ===== SLIDE 13: STOCK GIFT TECH ===== -->
-<div class="slide bg-light is-light" data-index="12">
+<!-- ===== SLIDE 22: STOCK GIFT PRODUCT - DETAILS ===== -->
+<div class="slide bg-light is-light" data-index="21">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">STOCK GIFT EVALUATOR &mdash; PRODUCT</div>
+      <h2>產品展示：篩選 &amp; 估價模型</h2>
+    </div>
+    <div class="img-showcase collage-2" style="margin-bottom:16px;">
+      <div class="img-card"><img src="images/stock/twstock_main_table_5star_filter.png" alt="五星篩選"><div class="img-card-caption">五星 CP 值篩選 &mdash; 一眼找出最划算紀念品</div></div>
+      <div class="img-card"><img src="images/stock/twstock_valuation_model_explanation.png" alt="估價模型"><div class="img-card-caption">估價模型說明 &mdash; 透明可解釋的評分機制</div></div>
+    </div>
+    <div class="img-showcase collage-2">
+      <div class="img-card"><img src="images/stock/twstock_table_owned_gifts_guide.png" alt="持有股指南"><div class="img-card-caption">持有股紀念品指南 &mdash; 庫存股一覽與評分</div></div>
+      <div class="img-card"><img src="images/stock/twstock_gift_tree_readme_algorithm.png" alt="DFS 演算法"><div class="img-card-caption">V5 知識樹引擎 &mdash; JSON 樹狀 DFS 演算法</div></div>
+    </div>
+  </div>
+  <div class="slide-num">22 / 40</div>
+</div>
+
+<!-- ===== SLIDE 23: STOCK GIFT TECH - REFACTOR ===== -->
+<div class="slide bg-light is-light" data-index="22">
   <div class="slide-inner">
     <div class="content-header">
       <div class="section-label">STOCK GIFT EVALUATOR &mdash; TECH</div>
-      <h2>知識樹引擎重構 &amp; Serverless 架構</h2>
+      <h2>知識樹引擎重構：500 &rarr; 200 行</h2>
+    </div>
+    <div class="compare-box">
+      <div class="compare-before"><div class="compare-label">&#x274C; 重構前 (v3)</div><div style="font-size:13px;line-height:1.7;color:#7f1d1d;"><div style="font-weight:700;margin-bottom:6px;">500 行 if-else 硬編碼</div><ul style="padding-left:16px;margin:0;"><li>每種紀念品寫死在程式碼裡</li><li>新增品項 = 改程式 + 重新部署</li><li>估價邏輯與資料高度耦合</li><li>維護成本隨品項數線性成長</li></ul></div></div>
+      <div class="compare-after"><div class="compare-label">&#x2705; 重構後 (v5)</div><div style="font-size:13px;line-height:1.7;color:#14532d;"><div style="font-weight:700;margin-bottom:6px;">200 行 JSON 樹狀 DFS 演算法</div><ul style="padding-left:16px;margin:0;"><li>知識庫在 <code>tree.json</code>，非工程師也能編輯</li><li>新增品項 = 改 JSON，程式碼零修改</li><li>商業邏輯與知識庫完全解耦</li><li>視覺化編輯器一鍵試算全部 CP 值</li></ul></div></div>
+    </div>
+  </div>
+  <div class="slide-num">23 / 40</div>
+</div>
+
+<!-- ===== SLIDE 24: STOCK GIFT TECH - SERVERLESS ===== -->
+<div class="slide bg-light is-light" data-index="23">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">STOCK GIFT EVALUATOR &mdash; TECH</div>
+      <h2>Serverless 零成本架構</h2>
     </div>
     <div class="two-col">
-      <div>
-        <div class="compare-box">
-          <div class="compare-before"><div class="compare-label">&#x274C; 重構前 (v3)</div><div style="font-size:13px;line-height:1.7;color:#7f1d1d;"><div style="font-weight:700;margin-bottom:6px;">500 行 if-else 硬編碼</div><ul style="padding-left:16px;margin:0;"><li>每種紀念品寫死在程式碼裡</li><li>新增品項 = 改程式 + 重新部署</li><li>估價邏輯與資料高度耦合</li><li>維護成本隨品項數線性成長</li></ul></div></div>
-          <div class="compare-after"><div class="compare-label">&#x2705; 重構後 (v5)</div><div style="font-size:13px;line-height:1.7;color:#14532d;"><div style="font-weight:700;margin-bottom:6px;">200 行 JSON 樹狀 DFS 演算法</div><ul style="padding-left:16px;margin:0;"><li>知識庫在 <code>tree.json</code>，非工程師也能編輯</li><li>新增品項 = 改 JSON，程式碼零修改</li><li>商業邏輯與知識庫完全解耦</li><li>視覺化編輯器一鍵試算全部 CP 值</li></ul></div></div>
-        </div>
-        <div style="margin-top:16px;">
-          <div class="product-screenshot"><img src="images/stock/twstock_gift_tree_readme_algorithm.png" alt="DFS 演算法"></div>
-          <div class="product-screenshot" style="margin-top:8px;"><img src="images/stock/twstock_table_owned_gifts_guide.png" alt="持有股紀念品指南"></div>
-        </div>
-      </div>
       <div>
         <div class="problem-section" style="border-left:4px solid var(--primary);">
           <div class="problem-title">&#x1F310; Serverless 零成本架構</div>
@@ -929,6 +1084,8 @@ html, body {
             <div style="display:flex;align-items:center;gap:10px;"><div style="padding:8px 14px;border-radius:8px;background:#fef3c7;color:#92400e;font-weight:700;font-size:13px;flex-shrink:0;">FinMind API</div><div style="font-size:13px;color:var(--text-sec);">股價即時更新</div></div>
           </div>
         </div>
+      </div>
+      <div>
         <div class="stat-row" style="margin-top:16px;">
           <div class="stat-item"><div class="stat-num">800+</div><div class="stat-label">支股票覆蓋</div></div>
           <div class="stat-item"><div class="stat-num">1-5 &star;</div><div class="stat-label">CP 值分級評分</div></div>
@@ -937,11 +1094,11 @@ html, body {
       </div>
     </div>
   </div>
-  <div class="slide-num">13 / 20</div>
+  <div class="slide-num">24 / 40</div>
 </div>
 
-<!-- ===== SLIDE 14: STOCK GIFT SUMMARY ===== -->
-<div class="slide bg-dark-grid" data-index="13">
+<!-- ===== SLIDE 25: STOCK GIFT SUMMARY ===== -->
+<div class="slide bg-dark-grid" data-index="24">
   <div class="slide-inner" style="max-width:900px; margin:0 auto;">
     <div style="text-align:center; margin-bottom:40px;">
       <div class="section-label">STOCK GIFT EVALUATOR &mdash; KEY RESULTS</div>
@@ -953,11 +1110,11 @@ html, body {
       <div class="summary-card"><div class="summary-card-icon">&#x1F4CA;</div><div class="summary-card-title">產品落地思維</div><div class="summary-card-desc">Serverless 架構設計、GitHub Actions 自動化、Google Analytics 數據追蹤、Content Security Policy 防護 &mdash;&mdash; 展現從開發到運營的全端能力。</div></div>
     </div>
   </div>
-  <div class="slide-num">14 / 20</div>
+  <div class="slide-num">25 / 40</div>
 </div>
 
-<!-- ===== SLIDE 15: SYNTHFORGE CHAPTER ===== -->
-<div class="slide bg-dark-accent" data-index="14">
+<!-- ===== SLIDE 26: SYNTHFORGE CHAPTER ===== -->
+<div class="slide bg-dark-accent" data-index="25">
   <div class="chapter-container">
     <div class="chapter-number">04</div>
     <div class="chapter-label">PROJECT 04</div>
@@ -967,26 +1124,74 @@ html, body {
       <span class="chapter-tech-tag">Python</span><span class="chapter-tech-tag">YAML</span><span class="chapter-tech-tag">AI Agents</span><span class="chapter-tech-tag">CLI</span><span class="chapter-tech-tag">Workflow Engine</span>
     </div>
   </div>
-  <div class="slide-num">15 / 20</div>
+  <div class="slide-num">26 / 40</div>
 </div>
 
-<!-- ===== SLIDE 16: SYNTHFORGE GOVERNANCE ===== -->
-<div class="slide bg-light is-light" data-index="15">
+<!-- ===== SLIDE 27: SYNTHFORGE DESIGN PHILOSOPHY ===== -->
+<div class="slide bg-light is-light" data-index="26">
   <div class="slide-inner">
     <div class="content-header">
-      <div class="section-label">SYNTHFORGE &mdash; ARCHITECTURE</div>
-      <h2>22 條分層治理規則 &amp; 模組化架構</h2>
+      <div class="section-label">SYNTHFORGE &mdash; PHILOSOPHY</div>
+      <h2>設計哲學：治理先行</h2>
     </div>
     <div class="two-col">
       <div>
-        <div style="font-size:14px; font-weight:700; margin-bottom:12px; color:var(--primary);">&#x1F6E1;&#xFE0F; 三層治理規則體系</div>
-        <div class="rules-tiers">
-          <div class="rules-tier critical"><div class="rules-tier-num">7</div><div class="rules-tier-label">Core</div><div class="rules-tier-desc">MUST &mdash; 沒有會死</div></div>
-          <div class="rules-tier important"><div class="rules-tier-num">11</div><div class="rules-tier-label">Dev</div><div class="rules-tier-desc">SHOULD &mdash; 沒有會病</div></div>
-          <div class="rules-tier optional"><div class="rules-tier-num">4</div><div class="rules-tier-label">Mgmt</div><div class="rules-tier-desc">MAY &mdash; 沒有會慢</div></div>
+        <div class="problem-section" style="border-left:4px solid var(--primary);">
+          <div class="problem-title">&#x1F6E1;&#xFE0F; 為什麼需要治理？</div>
+          <div style="font-size:14px; line-height:1.8; color:var(--text-sec);">
+            AI 工具越來越強大，但沒有規則的 AI 就像沒有煞車的跑車。<strong>SynthForge 的核心假設是：治理框架比功能實作更有價值。</strong>先定義好邊界，AI 才能在轨道內行駛得更快。
+          </div>
         </div>
-        <div style="font-size:12px; color:var(--text-light); line-height:1.6; margin-top:8px;">按「違反會死 / 會病 / 會慢」分級，邏輯清晰、執行有層次。治理是引導而非鎖死 &mdash;&mdash; Markdown 規則由 AI 自覺遵守。</div>
-        <div style="font-size:14px; font-weight:700; margin-top:20px; margin-bottom:12px; color:var(--primary);">&#x1F504; 工作流引擎管線</div>
+      </div>
+      <div>
+        <div class="img-card"><img src="images/synthforge/synthforge_readme_design_philosophy.png" alt="設計哲學"><div class="img-card-caption">SynthForge 設計哲學 &mdash; 治理先行，實作跟隨</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">27 / 40</div>
+</div>
+
+<!-- ===== SLIDE 28: SYNTHFORGE RULES ===== -->
+<div class="slide bg-light is-light" data-index="27">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">SYNTHFORGE &mdash; RULES</div>
+      <h2>22 條分層治理規則</h2>
+    </div>
+    <div class="rules-tiers">
+      <div class="rules-tier critical"><div class="rules-tier-num">7</div><div class="rules-tier-label">Core</div><div class="rules-tier-desc">MUST &mdash; 沒有會死</div></div>
+      <div class="rules-tier important"><div class="rules-tier-num">11</div><div class="rules-tier-label">Dev</div><div class="rules-tier-desc">SHOULD &mdash; 沒有會病</div></div>
+      <div class="rules-tier optional"><div class="rules-tier-num">4</div><div class="rules-tier-label">Mgmt</div><div class="rules-tier-desc">MAY &mdash; 沒有會慢</div></div>
+    </div>
+    <div style="font-size:14px; color:var(--text-sec); line-height:1.7; margin-top:20px;">按「違反會死 / 會病 / 會慢」分級，邏輯清晰、執行有層次。治理是引導而非鎖死 &mdash;&mdash; Markdown 規則由 AI 自覺遵守。</div>
+  </div>
+  <div class="slide-num">28 / 40</div>
+</div>
+
+<!-- ===== SLIDE 29: SYNTHFORGE ARCHITECTURE ===== -->
+<div class="slide bg-light is-light" data-index="28">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">SYNTHFORGE &mdash; ARCHITECTURE</div>
+      <h2>模組化系統架構</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div style="font-size:14px; font-weight:700; margin-bottom:12px; color:var(--primary);">&#x1F3D7;&#xFE0F; 分層架構設計</div>
+        <div class="arch-diagram" style="margin-bottom:0;">
+          <div class="arch-layer" style="border-left-color:var(--accent); background:linear-gradient(135deg,#e6f5f1,#f0fdf8);"><div class="arch-layer-label">&#x1F9D1;&#x200D;&#x1F4BB; 使用者 / AI 代理</div><div class="arch-layer-content">VIBE_GUIDE.md 導航入口 + task.md 任務控制中心</div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:#8b5cf6; background:#f5f3ff;"><div class="arch-layer-label">&#x1F6E1;&#xFE0F; Rules 治理層</div><div class="arch-layer-content">7 Core + 11 Dev + 4 Mgmt = <strong>22 條分層規則</strong></div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:var(--warning); background:#fffbeb;"><div class="arch-layer-label">&#x2699;&#xFE0F; DevTools CLI</div><div class="arch-layer-content">7 大命令群 + 知識圖譜 + 結構優化器</div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer"><div class="arch-layer-label">&#x1F504; Workflow Engine</div><div class="arch-layer-content">YAML 宣告式工作流引擎（Parser &rarr; Validator &rarr; Executor）</div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:#ec4899; background:#fdf2f8;"><div class="arch-layer-label">&#x1F9E6; Skills / Agents</div><div class="arch-layer-content"><strong>5 Skills</strong>（無狀態純函數）+ <strong>4 Agents</strong>（有狀態自主實體）</div></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:14px; font-weight:700; margin-bottom:12px; color:var(--primary);">&#x1F504; 工作流引擎管線</div>
         <div style="background:var(--white); border-radius:10px; padding:16px; border: 1px solid #e0e5ed;">
           <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:center;">
             <div style="padding:8px 14px; border-radius:8px; background:#fef3c7; font-size:12px; font-weight:700; color:#92400e;">YAML 宣告</div>
@@ -1000,28 +1205,36 @@ html, body {
             <div style="padding:8px 14px; border-radius:8px; background:var(--dark-3); color:#fff; font-size:12px; font-weight:700;">Context</div>
           </div>
         </div>
-      </div>
-      <div>
-        <div style="font-size:14px; font-weight:700; margin-bottom:12px; color:var(--primary);">&#x1F3D7;&#xFE0F; 模組化系統架構</div>
-        <div class="arch-diagram" style="margin-bottom:0;">
-          <div class="arch-layer" style="border-left-color:var(--accent); background:linear-gradient(135deg,#e6f5f1,#f0fdf8);"><div class="arch-layer-label">&#x1F9D1;&#x200D;&#x1F4BB; 使用者 / AI 代理</div><div class="arch-layer-content">VIBE_GUIDE.md 導航入口 + task.md 任務控制中心</div></div>
-          <div class="arch-arrow">&#x2195;</div>
-          <div class="arch-layer" style="border-left-color:#8b5cf6; background:#f5f3ff;"><div class="arch-layer-label">&#x1F6E1;&#xFE0F; Rules 治理層</div><div class="arch-layer-content">7 Core + 11 Dev + 4 Mgmt = <strong>22 條分層規則</strong></div></div>
-          <div class="arch-arrow">&#x2195;</div>
-          <div class="arch-layer" style="border-left-color:var(--warning); background:#fffbeb;"><div class="arch-layer-label">&#x2699;&#xFE0F; DevTools CLI</div><div class="arch-layer-content">7 大命令群 + 知識圖譜 + 結構優化器</div></div>
-          <div class="arch-arrow">&#x2195;</div>
-          <div class="arch-layer"><div class="arch-layer-label">&#x1F504; Workflow Engine</div><div class="arch-layer-content">YAML 宣告式工作流引擎（Parser &rarr; Validator &rarr; Executor）</div></div>
-          <div class="arch-arrow">&#x2195;</div>
-          <div class="arch-layer" style="border-left-color:#ec4899; background:#fdf2f8;"><div class="arch-layer-label">&#x1F9E6; Skills / Agents</div><div class="arch-layer-content"><strong>5 Skills</strong>（無狀態純函數）+ <strong>4 Agents</strong>（有狀態自主實體）</div></div>
+        <div style="margin-top:16px;">
+          <div class="img-card"><img src="images/synthforge/synthforge_readme_workflow_dataflow.png" alt="工作流數據流"><div class="img-card-caption">工作流引擎數據流 &mdash; 宣告式管線與上下文管理</div></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="slide-num">16 / 20</div>
+  <div class="slide-num">29 / 40</div>
 </div>
 
-<!-- ===== SLIDE 17: SYNTHFORGE SUMMARY ===== -->
-<div class="slide bg-dark-grid" data-index="16">
+<!-- ===== SLIDE 30: SYNTHFORGE VISUAL TOUR ===== -->
+<div class="slide bg-light is-light" data-index="29">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">SYNTHFORGE &mdash; WALKTHROUGH</div>
+      <h2>框架視覺導覽</h2>
+    </div>
+    <div class="img-showcase collage-2" style="margin-bottom:16px;">
+      <div class="img-card"><img src="images/synthforge/synthforge_readme_intro_context.png" alt="框架介紹"><div class="img-card-caption">SynthForge 框架介紹 &mdash; 設計理念與核心概念</div></div>
+      <div class="img-card"><img src="images/synthforge/synthforge_readme_overview_features.png" alt="功能總覽"><div class="img-card-caption">功能總覽 &mdash; Skills、Agents、Workflow Engine 全貌</div></div>
+    </div>
+    <div class="img-showcase collage-2">
+      <div class="img-card"><img src="images/synthforge/synthforge_readme_conclusion.png" alt="結論與反思"><div class="img-card-caption">結論與反思 &mdash; 架構決策的取捨</div></div>
+      <div class="img-card"><img src="images/synthforge/synthforge_readme_design_philosophy.png" alt="設計哲學"><div class="img-card-caption">設計哲學 &mdash; 治理先行、漸進披露</div></div>
+    </div>
+  </div>
+  <div class="slide-num">30 / 40</div>
+</div>
+
+<!-- ===== SLIDE 31: SYNTHFORGE SUMMARY ===== -->
+<div class="slide bg-dark-grid" data-index="30">
   <div class="slide-inner" style="max-width:900px; margin:0 auto;">
     <div style="text-align:center; margin-bottom:40px;">
       <div class="section-label">SYNTHFORGE &mdash; INSIGHTS</div>
@@ -1032,11 +1245,11 @@ html, body {
       <div class="summary-card"><div class="summary-card-icon">&#x1F4D1;</div><div class="summary-card-title">帶得走的經驗</div><div class="summary-card-desc"><ul style="margin:0;padding-left:16px;font-size:13px;line-height:1.7;"><li>治理先行是對的，但 22 條太多，精煉為 7-10 條更可持續</li><li>Progressive Disclosure 真的有效</li><li>Executor placeholder 是策略性推遲，先定義接口再漸進填充</li><li>YAML 宣告式比命令式更可讀，但純 YAML 不夠，需要條件邏輯</li><li>task.md 作為 Mission Control 是最佳實踐</li></ul></div></div>
     </div>
   </div>
-  <div class="slide-num">17 / 20</div>
+  <div class="slide-num">31 / 40</div>
 </div>
 
-<!-- ===== SLIDE 18: EXHIBIT ===== -->
-<div class="slide bg-light is-light" data-index="17">
+<!-- ===== SLIDE 32: EXHIBIT ===== -->
+<div class="slide bg-light is-light" data-index="31">
   <div class="slide-inner">
     <div class="content-header">
       <div class="section-label">PROJECT 05</div>
@@ -1053,49 +1266,188 @@ html, body {
         </div>
       </div>
       <div>
-        <div class="img-showcase collage-3">
-          <div class="img-card"><img src="images/exhibit/exhibit_homepage_hero_carousel.png" alt="Exhibit 首頁"><div class="img-card-caption">首頁輪播 &mdash; 精選展覽推薦</div></div>
-          <div class="img-card"><img src="images/exhibit/exhibit_detail_page_ai_category.png" alt="AI 分類"><div class="img-card-caption">AI 智慧分類 &mdash; 信心度動態建議</div></div>
-          <div class="img-card"><img src="images/exhibit/exhibit_detail_page_map_section.png" alt="地圖導航"><div class="img-card-caption">展覽地圖 &mdash; 地理位置與交通資訊</div></div>
-        </div>
-        <div class="problem-section" style="margin-top:16px; border-left:4px solid var(--primary);"><div class="problem-title">&#x1F4CA; 專案數據</div><div class="stat-row" style="margin:0;"><div class="stat-item" style="text-align:left;"><div class="stat-num" style="font-size:24px;">0&rarr;1</div><div class="stat-label">從構想到上線全程主導</div></div><div class="stat-item" style="text-align:left;"><div class="stat-num" style="font-size:24px;">4+</div><div class="stat-label">分類色彩系統</div></div></div></div>
+        <div class="img-card" style="margin-bottom:16px;"><img src="images/exhibit/exhibit_homepage_hero_carousel.png" alt="Exhibit 首頁"><div class="img-card-caption">首頁輪播 &mdash; 精選展覽推薦</div></div>
+        <div class="img-card" style="margin-bottom:16px;"><img src="images/exhibit/exhibit_detail_page_ai_category.png" alt="AI 分類"><div class="img-card-caption">AI 智慧分類 &mdash; 信心度動態建議</div></div>
+        <div class="img-card"><img src="images/exhibit/exhibit_detail_page_map_section.png" alt="地圖導航"><div class="img-card-caption">展覽地圖 &mdash; 地理位置與交通資訊</div></div>
       </div>
     </div>
   </div>
-  <div class="slide-num">18 / 20</div>
+  <div class="slide-num">32 / 40</div>
 </div>
 
-<!-- ===== SLIDE 19: EXPERIENCE ===== -->
-<div class="slide bg-light is-light" data-index="18">
+<!-- ===== SLIDE 33: EXPERIENCE - WORK ===== -->
+<div class="slide bg-light is-light" data-index="32">
   <div class="slide-inner">
     <div class="content-header">
       <div class="section-label">EXPERIENCE</div>
-      <h2>工作經歷 &amp; 教育背景</h2>
+      <h2>工作經歷</h2>
     </div>
-    <div class="two-col">
-      <div>
-        <div style="font-size:14px; font-weight:700; margin-bottom:16px; color:var(--primary);">&#x1F4BC; 工作經歷</div>
-        <div class="timeline">
-          <div class="timeline-item"><div class="time">2025/12 &ndash; 2026/03</div><div class="role">專案實習生（AI 新秀專班）</div><div class="company">凱基證券 數位創新部</div><div style="font-size:12px; color:var(--text-light); margin-top:4px;">擔任內部 AI 知識庫 (RAG) 專案品質把關，跨部門系統檢驗與推廣。向投顧部門示範導入 Cowork Agent，具體協助分析師降低工作量。</div></div>
-          <div class="timeline-item"><div class="time">2024/11 &ndash; 2025/06</div><div class="role">BMC 工程師</div><div class="company">系微股份有限公司</div><div style="font-size:12px; color:var(--text-light); margin-top:4px;">BMC Web 前端開發團隊，Vue.js 功能開發與排錯。Redfish / IPMI / SNMP 通訊協定經驗。</div></div>
-          <div class="timeline-item"><div class="time">2024/07 &ndash; 2024/11</div><div class="role">AI 工程師</div><div class="company">台灣化學塑膠有限公司</div><div style="font-size:12px; color:var(--text-light); margin-top:4px;">YOLO 電腦視覺工安監控，從模型選型到現場部署的端對端實作。預防型 + 判斷型雙場景。</div></div>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:14px; font-weight:700; margin-bottom:16px; color:var(--primary);">&#x1F393; 教育與證照</div>
-        <div style="background:var(--white); border-radius:10px; padding:20px; border:1px solid #e0e5ed; margin-bottom:16px;"><div style="font-weight:700;font-size:14px;margin-bottom:4px;">經濟部 AI 新秀專班</div><div style="font-size:12px;color:var(--text-light);margin-bottom:6px;">經濟部產業發展署 &times; 國立臺北科技大學 | 2025/08 &ndash; 2025/11</div><div style="font-size:13px;color:var(--text-sec);">修習生成式 AI 應用、機器學習與 AI 專案規劃。結訓後銜接凱基證券 AI 企業實習。</div></div>
-        <div style="background:var(--white); border-radius:10px; padding:20px; border:1px solid #e0e5ed; margin-bottom:16px;"><div style="font-weight:700;font-size:14px;margin-bottom:4px;">長庚大學 &mdash; 資訊工程學士</div><div style="font-size:12px;color:var(--text-light);margin-bottom:6px;">2019/09 &ndash; 2023/06</div><div style="font-size:13px;color:var(--text-sec);">修習軟體工程課程，完整產出需求規格書、設計規格書、系統測試報告與操作手冊。</div></div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--primary);">&#x1F4DC; 專業證照</div>
-        <div style="background:var(--white);border-radius:10px;padding:16px;border:1px solid #e0e5ed;margin-bottom:8px;"><div style="display:flex;align-items:center;gap:8px;"><span style="background:var(--accent);color:#fff;font-size:11px;padding:3px 10px;border-radius:4px;font-weight:600;">證照</span><span style="font-size:14px;font-weight:600;">iPAS AI 應用規劃師初級</span></div><div style="font-size:12px;color:var(--text-light);margin-top:4px;">經濟部產業發展署 | 2026/03</div></div>
-        <div style="background:var(--white);border-radius:10px;padding:16px;border:1px solid #e0e5ed;"><div style="display:flex;align-items:center;gap:8px;"><span style="background:var(--primary);color:#fff;font-size:11px;padding:3px 10px;border-radius:4px;font-weight:600;">認證</span><span style="font-size:14px;font-weight:600;">Coursera 專業認證</span></div><div style="font-size:12px;color:var(--text-light);margin-top:4px;">AI for Data Analysts / in Business / in Marketing | 2025/09&ndash;11</div></div>
+    <div style="max-width:800px; margin:0 auto;">
+      <div class="timeline">
+        <div class="timeline-item"><div class="time">2025/12 &ndash; 2026/03</div><div class="role">專案實習生（AI 新秀專班）</div><div class="company">凱基證券 數位創新部</div><div style="font-size:13px; color:var(--text-light); margin-top:4px; line-height:1.6;">擔任內部 AI 知識庫 (RAG) 專案品質把關，跨部門系統檢驗與推廣。向投顧部門示範導入 Cowork Agent，具體協助分析師降低工作量。</div></div>
+        <div class="timeline-item"><div class="time">2024/11 &ndash; 2025/06</div><div class="role">BMC 工程師</div><div class="company">系微股份有限公司</div><div style="font-size:13px; color:var(--text-light); margin-top:4px; line-height:1.6;">BMC Web 前端開發團隊，Vue.js 功能開發與排錯。Redfish / IPMI / SNMP 通訊協定經驗。</div></div>
+        <div class="timeline-item"><div class="time">2024/07 &ndash; 2024/11</div><div class="role">AI 工程師</div><div class="company">台灣化學塑膠有限公司</div><div style="font-size:13px; color:var(--text-light); margin-top:4px; line-height:1.6;">YOLO 電腦視覺工安監控，從模型選型到現場部署的端對端實作。預防型 + 判斷型雙場景。</div></div>
       </div>
     </div>
   </div>
-  <div class="slide-num">19 / 20</div>
+  <div class="slide-num">33 / 40</div>
 </div>
 
-<!-- ===== SLIDE 20: CLOSING ===== -->
-<div class="slide bg-dark-accent" data-index="19">
+<!-- ===== SLIDE 34: EXPERIENCE - EDUCATION ===== -->
+<div class="slide bg-light is-light" data-index="33">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">EDUCATION &amp; CERTIFICATIONS</div>
+      <h2>教育背景與專業證照</h2>
+    </div>
+    <div style="max-width:800px; margin:0 auto;">
+      <div style="font-size:14px; font-weight:700; margin-bottom:16px; color:var(--primary);">&#x1F393; 教育背景</div>
+      <div style="background:var(--white); border-radius:10px; padding:20px; border:1px solid #e0e5ed; margin-bottom:16px;"><div style="font-weight:700;font-size:14px;margin-bottom:4px;">經濟部 AI 新秀專班</div><div style="font-size:12px;color:var(--text-light);margin-bottom:6px;">經濟部產業發展署 &times; 國立臺北科技大學 | 2025/08 &ndash; 2025/11</div><div style="font-size:13px;color:var(--text-sec);">修習生成式 AI 應用、機器學習與 AI 專案規劃。結訓後銜接凱基證券 AI 企業實習。</div></div>
+      <div style="background:var(--white); border-radius:10px; padding:20px; border:1px solid #e0e5ed; margin-bottom:24px;"><div style="font-weight:700;font-size:14px;margin-bottom:4px;">長庚大學 &mdash; 資訊工程學士</div><div style="font-size:12px;color:var(--text-light);margin-bottom:6px;">2019/09 &ndash; 2023/06</div><div style="font-size:13px;color:var(--text-sec);">修習軟體工程課程，完整產出需求規格書、設計規格書、系統測試報告與操作手冊。</div></div>
+
+      <div style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--primary);">&#x1F4DC; 專業證照</div>
+      <div style="background:var(--white);border-radius:10px;padding:16px;border:1px solid #e0e5ed;margin-bottom:8px;"><div style="display:flex;align-items:center;gap:8px;"><span style="background:var(--accent);color:#fff;font-size:11px;padding:3px 10px;border-radius:4px;font-weight:600;">證照</span><span style="font-size:14px;font-weight:600;">iPAS AI 應用規劃師初級</span></div><div style="font-size:12px;color:var(--text-light);margin-top:4px;">經濟部產業發展署 | 2026/03</div></div>
+      <div style="background:var(--white);border-radius:10px;padding:16px;border:1px solid #e0e5ed;"><div style="display:flex;align-items:center;gap:8px;"><span style="background:var(--primary);color:#fff;font-size:11px;padding:3px 10px;border-radius:4px;font-weight:600;">認證</span><span style="font-size:14px;font-weight:600;">Coursera 專業認證</span></div><div style="font-size:12px;color:var(--text-light);margin-top:4px;">AI for Data Analysts / in Business / in Marketing | 2025/09&ndash;11</div></div>
+    </div>
+  </div>
+  <div class="slide-num">34 / 40</div>
+</div>
+
+<!-- ===== SLIDE 35-38: PORTFOLIO OVERVIEW ===== -->
+<div class="slide bg-dark-grid" data-index="34">
+  <div class="slide-inner" style="max-width:900px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div class="section-label">PROJECT OVERVIEW</div>
+      <div class="slide-title" style="color:#fff;">五大專案，一條主線</div>
+      <div class="slide-subtitle" style="color:rgba(255,255,255,0.6);">用工程思維串起 AI 的最後一哩</div>
+    </div>
+    <div class="summary-cards col-2" style="gap:16px;">
+      <div class="summary-card" style="padding:20px;"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">&#x1F3E0;</span><span style="font-weight:700;color:#fff;font-size:14px;">HomeLab AI Stack</span></div><div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:6px;">Supervisor-Worker 分層架構 &bull; MLOps 全棧監控 &bull; 95% 本地處理率</div></div>
+      <div class="summary-card" style="padding:20px;"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">&#x1F4C8;</span><span style="font-weight:700;color:#fff;font-size:14px;">ETF AI 智能顧問</span></div><div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:6px;">RAG 管線 &bull; 動態提示工程 &bull; Flutter 跨平台 &bull; GPT-4o 生成</div></div>
+      <div class="summary-card" style="padding:20px;"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">&#x1F381;</span><span style="font-weight:700;color:#fff;font-size:14px;">股東會紀念品系統</span></div><div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:6px;">500&rarr;200 行重構 &bull; Serverless 零成本 &bull; 已上線運營</div></div>
+      <div class="summary-card" style="padding:20px;"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">&#x1F6E1;&#xFE0F;</span><span style="font-weight:700;color:#fff;font-size:14px;">SynthForge</span></div><div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:6px;">22 條治理規則 &bull; YAML 工作流引擎 &bull; 治理先於實作</div></div>
+      <div class="summary-card" style="padding:20px;grid-column: span 2;"><div style="display:flex;align-items:center;gap:10px;"><span style="font-size:24px;">&#x1F3A8;</span><span style="font-weight:700;color:#fff;font-size:14px;">Exhibit 展覽查詢平台</span></div><div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:6px;">Scrum 敏捷 &bull; Glassmorphism UI &bull; AI 智慧分類 &bull; 從 0 到 1 全程主導</div></div>
+    </div>
+  </div>
+  <div class="slide-num">35 / 40</div>
+</div>
+
+<!-- ===== SLIDE 36: KEY METRICS ===== -->
+<div class="slide bg-dark-accent" data-index="35">
+  <div class="close-container">
+    <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:4px; color:var(--accent); margin-bottom:24px;">BY THE NUMBERS</div>
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:32px; margin-bottom:48px;">
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">5</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">完整專案</div></div>
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">23</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">ADR 架構決策紀錄</div></div>
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">800+</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">股票覆蓋</div></div>
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">95%</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">本地 AI 處理率</div></div>
+    </div>
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:32px;">
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">500&rarr;200</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">程式碼精簡</div></div>
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">22</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">治理規則</div></div>
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">$0</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">月維護成本</div></div>
+      <div style="text-align:center;"><div style="font-size:48px;font-weight:900;color:#fff;">0&rarr;1</div><div style="font-size:14px;color:rgba(255,255,255,0.6);">Exhibit 全程主導</div></div>
+    </div>
+  </div>
+  <div class="slide-num">36 / 40</div>
+</div>
+
+<!-- ===== SLIDE 37: POSITIONING ===== -->
+<div class="slide bg-dark-grid" data-index="36">
+  <div class="close-container">
+    <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:4px; color:var(--accent); margin-bottom:32px;">MY POSITIONING</div>
+    <div style="font-size:36px; font-weight:900; color:#fff; max-width:800px; text-align:center; line-height:1.3; margin-bottom:24px;">我不只是寫程式的人</div>
+    <div style="font-size:18px; color:rgba(255,255,255,0.65); max-width:700px; text-align:center; line-height:1.7;">
+      我是用<strong style="color:var(--accent);">工程思維</strong>解決商業問題的人。<br>
+      從 BMC 韌體到 AI 叢集，從投資系統到治理框架 &mdash;&mdash;<br>
+      每個專案都在證明：<strong style="color:var(--accent);">技術方案要精準落地，才是好方案。</strong>
+    </div>
+  </div>
+  <div class="slide-num">37 / 40</div>
+</div>
+
+<!-- ===== SLIDE 38: TECH STACK OVERVIEW ===== -->
+<div class="slide bg-light is-light" data-index="37">
+  <div class="slide-inner">
+    <div class="content-header" style="text-align:center;">
+      <div class="section-label">TECH STACK</div>
+      <h2>技術棧一覽</h2>
+    </div>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; max-width:900px; margin:0 auto;">
+      <div class="spectrum-card" style="text-align:center;">
+        <div class="spectrum-icon" style="background:#eef2ff; margin:0 auto 14px;">&#x1F916;</div>
+        <div class="spectrum-card-title">AI / ML</div>
+        <div class="spectrum-tags" style="justify-content:center;">
+          <span class="spectrum-tag highlight">RAG Pipeline</span>
+          <span class="spectrum-tag normal">ChromaDB</span>
+          <span class="spectrum-tag normal">OpenAI API</span>
+          <span class="spectrum-tag normal">YOLO/CV</span>
+          <span class="spectrum-tag normal">Hermes Agent</span>
+        </div>
+      </div>
+      <div class="spectrum-card" style="text-align:center;">
+        <div class="spectrum-icon" style="background:#e6f5f1; margin:0 auto 14px;">&#x1F310;</div>
+        <div class="spectrum-card-title">DevOps</div>
+        <div class="spectrum-tags" style="justify-content:center;">
+          <span class="spectrum-tag highlight">Docker</span>
+          <span class="spectrum-tag highlight">Prometheus</span>
+          <span class="spectrum-tag normal">GitHub Actions</span>
+          <span class="spectrum-tag normal">Tailscale</span>
+          <span class="spectrum-tag normal">LiteLLM</span>
+          <span class="spectrum-tag normal">Supabase</span>
+        </div>
+      </div>
+      <div class="spectrum-card" style="text-align:center;">
+        <div class="spectrum-icon" style="background:#fef3c7; margin:0 auto 14px;">&#x1F4BB;</div>
+        <div class="spectrum-card-title">Frontend</div>
+        <div class="spectrum-tags" style="justify-content:center;">
+          <span class="spectrum-tag highlight">React 18</span>
+          <span class="spectrum-tag normal">Vue.js</span>
+          <span class="spectrum-tag normal">Flutter</span>
+          <span class="spectrum-tag normal">TypeScript</span>
+          <span class="spectrum-tag normal">Firebase</span>
+        </div>
+      </div>
+      <div class="spectrum-card" style="text-align:center;">
+        <div class="spectrum-icon" style="background:#fce4ec; margin:0 auto 14px;">&#x1F4CB;</div>
+        <div class="spectrum-card-title">管理</div>
+        <div class="spectrum-tags" style="justify-content:center;">
+          <span class="spectrum-tag highlight">Scrum</span>
+          <span class="spectrum-tag highlight">ADR</span>
+          <span class="spectrum-tag normal">需求規格</span>
+          <span class="spectrum-tag normal">跨部門溝通</span>
+          <span class="spectrum-tag normal">AI Agent 治理</span>
+        </div>
+      </div>
+      <div class="spectrum-card" style="text-align:center;">
+        <div class="spectrum-icon" style="background:#e8f0fb; margin:0 auto 14px;">&#x1F527;</div>
+        <div class="spectrum-card-title">韌體 / 嵌入式</div>
+        <div class="spectrum-tags" style="justify-content:center;">
+          <span class="spectrum-tag normal">Redfish</span>
+          <span class="spectrum-tag normal">IPMI</span>
+          <span class="spectrum-tag normal">SNMP</span>
+          <span class="spectrum-tag normal">C++</span>
+          <span class="spectrum-tag normal">BMC</span>
+        </div>
+      </div>
+      <div class="spectrum-card" style="text-align:center;">
+        <div class="spectrum-icon" style="background:#f0fdf4; margin:0 auto 14px;">&#x1F4CA;</div>
+        <div class="spectrum-card-title">數據 / 後端</div>
+        <div class="spectrum-tags" style="justify-content:center;">
+          <span class="spectrum-tag normal">Python</span>
+          <span class="spectrum-tag normal">Dart Frog</span>
+          <span class="spectrum-tag normal">Grafana</span>
+          <span class="spectrum-tag normal">YAML</span>
+          <span class="spectrum-tag normal">FinMind</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">38 / 40</div>
+</div>
+
+<!-- ===== SLIDE 39: CLOSING ===== -->
+<div class="slide bg-dark-accent" data-index="38">
   <div class="close-container">
     <div style="font-size:80px; margin-bottom:20px;">&#x1F44B;</div>
     <div class="close-thanks">Thank You</div>
@@ -1107,7 +1459,7 @@ html, body {
       <a class="close-link-item" href="https://www.linkedin.com/in/zhixiang8897/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/zhixiang8897</a>
     </div>
   </div>
-  <div class="slide-num">20 / 20</div>
+  <div class="slide-num">39 / 40</div>
 </div>
 
 </div><!-- end slide-deck -->

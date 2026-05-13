@@ -528,19 +528,46 @@ html, body {
 
 /* ===== PRINT ===== */
 @media print {
-  html, body { width: 100%; height: auto; overflow: visible; background: #fff; }
-  @page { size: A4 landscape; margin: 0; }
-  .slide-deck { position: static; }
+  html, body { 
+    width: 100%; height: auto; overflow: visible; background: #fff; 
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  @page { 
+    size: A4 landscape; 
+    margin: 0; 
+  }
+  .loading-screen, .nav-dots, .nav-arrows, .slide-num, .key-hint { 
+    display: none !important; 
+  }
+  .slide-deck { 
+    position: static; 
+    display: block;
+  }
   .slide {
-    position: static; opacity: 1 !important; pointer-events: auto !important;
-    page-break-after: always; break-after: page;
-    display: block; width: 100%; min-height: 100vh;
+    position: relative; 
+    opacity: 1 !important; 
+    pointer-events: auto !important;
+    page-break-after: always; 
+    break-after: page;
+    display: flex !important;
+    align-items: center; 
+    justify-content: center;
+    width: 100%; 
+    min-height: 210mm;
+    height: 210mm;
+    overflow: hidden;
   }
   .slide-inner, .cover-container, .chapter-container, .close-container {
-    max-width: 100% !important; padding: 30px 40px !important;
+    max-width: 100% !important; 
+    width: 100% !important;
+    padding: 30px 60px !important;
+    margin: 0 auto;
   }
-  .slide:last-child { page-break-after: auto; }
-  .nav-dots, .nav-arrows, .slide-num { display: none !important; }
+  .slide:last-child { 
+    page-break-after: auto; 
+  }
+  
+  .bg-dark, .bg-dark-grid, .bg-dark-accent, .bg-light, .bg-white-bg,
   .cover-right img, .img-card img, .product-screenshot img,
   .summary-card, .spectrum-card, .arch-layer, .rules-tier,
   .problem-section, .compare-before, .compare-after,

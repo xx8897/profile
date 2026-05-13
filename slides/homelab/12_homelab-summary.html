@@ -1,0 +1,32 @@
+<!-- ===== SLIDE 12: HOMELAB SUMMARY ===== -->
+<div class="slide bg-dark-grid" data-index="11">
+  <div class="slide-inner" style="max-width:900px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div class="section-label">HOMELAB AI STACK &mdash; KEY RESULTS</div>
+      <div class="slide-title" style="color:#fff;">成果摘要</div>
+    </div>
+    <div class="summary-cards col-2">
+      <div class="summary-card">
+        <div class="summary-card-icon">&#x1F310;</div>
+        <div class="summary-card-title">Supervisor-Worker 分層架構</div>
+        <div class="summary-card-desc">Mac M4 作為運算中樞運行 35B 主模型與 Hermes Agent，透過 LiteLLM Proxy 實現多機負載均衡。三層 Fallback 確保服務不中斷，本地處理率超過 95%。</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-icon">&#x1F4CA;</div>
+        <div class="summary-card-title">全棧 MLOps 監控</div>
+        <div class="summary-card-desc">建置完整的 Prometheus + Grafana 監控體系，部署 5 個自訂 Dashboard 與 6 條告警規則，整合 Telegram Bot 實現即時告警通知。任何節點異常立即推播。</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-icon">&#x1F9E9;</div>
+        <div class="summary-card-title">MoE 模型精算部署</div>
+        <div class="summary-card-desc">Qwen3.6-35B-A3B 採用 MoE 架構，IQ3_M 量化後僅 ~14GB 裝入 24GB Mac，以 3B 計算量獲得 35B 推理能力，實現消費級硬體上的大模型推理。</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-icon">&#x1F4D6;</div>
+        <div class="summary-card-title">架構決策文件化</div>
+        <div class="summary-card-desc">撰寫完整的 23 條 ADR（架構決策紀錄）、維運手冊與踩坑紀錄，展現系統化的技術文件能力與 MLOps 管理思維。從部署到維運，全生命週期可追溯。</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 40</div>
+</div>

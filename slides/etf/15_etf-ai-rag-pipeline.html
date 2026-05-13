@@ -1,0 +1,46 @@
+<!-- ===== SLIDE 15: ETF AI RAG PIPELINE ===== -->
+<div class="slide bg-light is-light" data-index="14">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">ETF AI ADVISOR &mdash; SOLUTION</div>
+      <h2>RAG 解決方案 &amp; 管線流程</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="problem-section" style="border-left: 4px solid var(--success);">
+          <div class="problem-title"><span class="icon">&#x2705;</span> RAG 解決方案</div>
+          <ul class="problem-list solve">
+            <li><strong>投資組合 DNA</strong>：引導式流程捕捉風險偏好、主題權重、量化指標</li>
+            <li><strong>動態提示工程</strong>：將 DNA 轉化為精確的 Prompt，確保 GPT-4o 生成客製化建議</li>
+            <li><strong>ChromaDB 向量檢索</strong>：語意匹配最快找到相關 ETF，再交給大模型生成報告</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="arch-diagram" style="margin-bottom:0;">
+          <div style="font-size:14px; font-weight:700; margin-bottom:16px; color:var(--primary);">&#x1F504; RAG 管線流程</div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#eef2ff; border:2px solid var(--primary); border-radius:10px; padding:10px 14px; flex:1; text-align:center; font-size:12px; font-weight:600; color:var(--primary-dark);">&#x1F464; 使用者設定<br>風險偏好 &amp; 主題權重</div>
+            </div>
+            <div style="text-align:center; font-size:18px; color:var(--accent);">&#x2193;</div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fef3c7; border:2px solid var(--warning); border-radius:10px; padding:10px 14px; flex:1; text-align:center; font-size:12px; font-weight:600; color:#92400e;">&#x1F527; Dart Frog 後端<br>動態 Prompt 建構</div>
+              <div style="font-size:14px; color:var(--text-light);">+</div>
+              <div style="background:#e6f5f1; border:2px solid var(--accent); border-radius:10px; padding:10px 14px; flex:1; text-align:center; font-size:12px; font-weight:600; color:var(--accent);">&#x1F50D; ChromaDB<br>向量檢索相關 ETF</div>
+            </div>
+            <div style="text-align:center; font-size:18px; color:var(--accent);">&#x2193;</div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fee2e2; border:2px solid var(--danger); border-radius:10px; padding:10px 14px; flex:1; text-align:center; font-size:12px; font-weight:600; color:#991b1b;">&#x1F916; GPT-4o 生成<br>個人化投資組合報告</div>
+            </div>
+            <div style="text-align:center; font-size:18px; color:var(--accent);">&#x2193;</div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:var(--primary-light); border:2px solid var(--primary); border-radius:10px; padding:10px 14px; flex:1; text-align:center; font-size:12px; font-weight:600; color:var(--primary-dark);">&#x1F4CA; Flutter UI 渲染<br>圓餅圖 + 持股明細 + 權重分析</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">15 / 40</div>
+</div>

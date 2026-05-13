@@ -1,0 +1,36 @@
+<!-- ===== SLIDE 7: HOMELAB FALLBACK & MOE ===== -->
+<div class="slide bg-light is-light" data-index="6">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">HOMELAB AI STACK &mdash; RESILIENCE</div>
+      <h2>三層 Fallback 機制 &amp; MoE 精算部署</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="problem-section" style="border-left: 4px solid var(--accent);">
+          <div class="problem-title">&#x1F504; 三層 Fallback 機制</div>
+          <div style="font-size:14px; line-height:1.8; color:var(--text-sec); margin-bottom:16px;">任何一層失敗，自動降級到下一層，確保服務不中斷：</div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="padding:10px 16px; border-radius:8px; background:var(--accent-light); color:var(--accent); font-weight:700; font-size:14px; flex-shrink:0;">L1 本地主力</div>
+            <div style="font-size:13px; color:var(--text-sec);">Qwen3.6-35B-A3B &mdash; 複雜推理、規劃、審核</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <div style="padding:10px 16px; border-radius:8px; background:#fef3c7; color:#92400e; font-weight:700; font-size:14px; flex-shrink:0;">L2 本地 Worker</div>
+            <div style="font-size:13px; color:var(--text-sec);">Qwopus-4B-v3 &mdash; JSON 萃取、摘要、格式化</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div style="padding:10px 16px; border-radius:8px; background:#fee2e2; color:#991b1b; font-weight:700; font-size:14px; flex-shrink:0;">L3 雲端備援</div>
+            <div style="font-size:13px; color:var(--text-sec);">DeepSeek V4 Flash &rarr; Pro &mdash; 本地全離線時保底</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="problem-section" style="border-left: 4px solid var(--primary);">
+          <div class="problem-title">&#x1F4A1; MoE 精算部署</div>
+          <div style="font-size:14px; line-height:1.7; color:var(--text-sec);">Qwen3.6-35B-A3B 採用 Mixture-of-Experts 架構，IQ3_M 量化後僅 ~14GB，裝入 Mac 24GB 統一記憶體，<strong>以 3B 計算量獲得 35B 推理能力</strong>，實現消費級硬體上的大模型推理。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">07 / 40</div>
+</div>

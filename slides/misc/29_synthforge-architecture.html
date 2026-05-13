@@ -1,0 +1,45 @@
+<!-- ===== SLIDE 29: SYNTHFORGE ARCHITECTURE ===== -->
+<div class="slide bg-light is-light" data-index="28">
+  <div class="slide-inner">
+    <div class="content-header">
+      <div class="section-label">SYNTHFORGE &mdash; ARCHITECTURE</div>
+      <h2>模組化系統架構</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div style="font-size:14px; font-weight:700; margin-bottom:12px; color:var(--primary);">&#x1F3D7;&#xFE0F; 分層架構設計</div>
+        <div class="arch-diagram" style="margin-bottom:0;">
+          <div class="arch-layer" style="border-left-color:var(--accent); background:linear-gradient(135deg,#e6f5f1,#f0fdf8);"><div class="arch-layer-label">&#x1F9D1;&#x200D;&#x1F4BB; 使用者 / AI 代理</div><div class="arch-layer-content">VIBE_GUIDE.md 導航入口 + task.md 任務控制中心</div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:#8b5cf6; background:#f5f3ff;"><div class="arch-layer-label">&#x1F6E1;&#xFE0F; Rules 治理層</div><div class="arch-layer-content">7 Core + 11 Dev + 4 Mgmt = <strong>22 條分層規則</strong></div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:var(--warning); background:#fffbeb;"><div class="arch-layer-label">&#x2699;&#xFE0F; DevTools CLI</div><div class="arch-layer-content">7 大命令群 + 知識圖譜 + 結構優化器</div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer"><div class="arch-layer-label">&#x1F504; Workflow Engine</div><div class="arch-layer-content">YAML 宣告式工作流引擎（Parser &rarr; Validator &rarr; Executor）</div></div>
+          <div class="arch-arrow">&#x2195;</div>
+          <div class="arch-layer" style="border-left-color:#ec4899; background:#fdf2f8;"><div class="arch-layer-label">&#x1F9E6; Skills / Agents</div><div class="arch-layer-content"><strong>5 Skills</strong>（無狀態純函數）+ <strong>4 Agents</strong>（有狀態自主實體）</div></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:14px; font-weight:700; margin-bottom:12px; color:var(--primary);">&#x1F504; 工作流引擎管線</div>
+        <div style="background:var(--white); border-radius:10px; padding:16px; border: 1px solid #e0e5ed;">
+          <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:center;">
+            <div style="padding:8px 14px; border-radius:8px; background:#fef3c7; font-size:12px; font-weight:700; color:#92400e;">YAML 宣告</div>
+            <div style="font-size:16px; color:var(--accent);">&#x2192;</div>
+            <div style="padding:8px 14px; border-radius:8px; background:var(--primary-light); font-size:12px; font-weight:700; color:var(--primary-dark);">Parser</div>
+            <div style="font-size:16px; color:var(--accent);">&#x2192;</div>
+            <div style="padding:8px 14px; border-radius:8px; background:var(--accent-light); font-size:12px; font-weight:700; color:var(--accent);">Validator</div>
+            <div style="font-size:16px; color:var(--accent);">&#x2192;</div>
+            <div style="padding:8px 14px; border-radius:8px; background:var(--tag-bg); border:1px solid var(--tag-border); font-size:12px; font-weight:700; color:var(--tag-text);">Executor</div>
+            <div style="font-size:16px; color:var(--accent);">&#x2192;</div>
+            <div style="padding:8px 14px; border-radius:8px; background:var(--dark-3); color:#fff; font-size:12px; font-weight:700;">Context</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <div class="img-card"><img src="images/synthforge/synthforge_readme_workflow_dataflow.png" alt="工作流數據流"><div class="img-card-caption">工作流引擎數據流 &mdash; 宣告式管線與上下文管理</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">29 / 40</div>
+</div>

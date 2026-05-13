@@ -6,16 +6,22 @@
       <h2>LiteLLM Proxy：多模型負載均衡</h2>
       <p>統一 API 介面，管理多個本地與雲端模型的負載均衡、容錯路由與 API Key 管理</p>
     </div>
-    <div class="two-col" style="gap: 40px; margin-top: 20px;">
-      <div class="img-card"><img src="images/homelab/litellm/litellm_ui_models_list.png" alt="LiteLLM Models"><div class="img-card-caption">LiteLLM UI &mdash; 多模型管理與狀態一覽</div></div>
-      <div class="problem-section" style="border-left: 4px solid var(--accent); margin-top: 0;">
-        <div class="problem-title">&#x1F517; LiteLLM 核心功能</div>
-        <ul class="problem-list solve">
-          <li>統一 OpenAI 格式 API 介面，讓前端無感切換不同模型後端</li>
-          <li>自動 Fallback 路由：L1 本地主力和 L2 本地 Worker 失敗時，自動降級</li>
-          <li>API Key 統一管理，前端只需一個端點即可使用所有模型</li>
-        </ul>
-      </div>
+    <div class="problem-section" style="border-left: 4px solid var(--accent); margin-top: 30px;">
+      <div class="problem-title">&#x1F517; LiteLLM 核心優勢</div>
+      <ul class="problem-list solve">
+        <li><strong>統一 API 介面</strong>：無論後端是 Ollama、vLLM 還是 OpenAI，前端統一調用 OpenAI 格式，達成「無感切換」。</li>
+        <li><strong>API Key 集中管理</strong>：透過單一入口管理所有模型的存取權限與配額，簡化前端邏輯。</li>
+      </ul>
+    </div>
+
+    <div class="problem-section" style="border-left: 4px solid var(--warning); margin-top: 20px;">
+      <div class="problem-title">&#x1F6E1; 階層式 Fallback 路由機制</div>
+      <p style="color:rgba(0,0,0,0.6); margin: 10px 0 10px 24px; font-size: 15px;">確保 AI 服務的高可用性，當本地硬體負載過高或異常時自動導流：</p>
+      <ul class="problem-list solve">
+        <li><strong>L1 (本地主力)</strong>：優先發送至 Mac M4 運算中樞，享受極低延遲。</li>
+        <li><strong>L2 (本地輔助)</strong>：若 L1 忙碌或斷線，自動降級至本地其他運算節點 (Local Workers)。</li>
+        <li><strong>L3 (雲端備援)</strong>：極端情況下，自動路由至雲端 API (如 GPT-4o-mini)，保證服務 100% 在線。</li>
+      </ul>
     </div>
   </div>
   <div class="slide-num">11 / 40</div>

@@ -20,6 +20,7 @@ const portfolioConfig = [
       "slides/homelab/homelab-monitoring-network-1.html",
       "slides/homelab/homelab-monitoring-network-2.html",
       "slides/misc/hermes-agent.html",
+      "slides/homelab/homelab-litellm-ui.html",
       "slides/homelab/homelab-litellm-v2.html",
       "slides/homelab/homelab-summary.html"
     ]

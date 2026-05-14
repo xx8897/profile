@@ -1,14 +1,11 @@
-<!-- ===== SLIDE 23: STOCK GIFT TECH - REFACTOR ===== -->
-<div class="slide bg-light is-light" data-index="22">
-  <div class="slide-inner">
+<div class="slide bg-light is-light">
+  <div class="slide-inner" style="display: flex; flex-direction: column; justify-content: center;">
     <div class="content-header">
       <div class="section-label">STOCK GIFT EVALUATOR &mdash; TECH</div>
-      <h2>知識樹引擎重構：500 &rarr; 200 行</h2>
+      <h2>知識樹引擎：DFS 演算法設計</h2>
+      <p style="margin-top: 10px; font-size: 16px; color: #4b5563;">從 500 行 if-else 硬編碼重構為 200 行 JSON 樹狀搜尋，商業邏輯與知識庫完全解耦</p>
     </div>
-    <div class="compare-box">
-      <div class="compare-before"><div class="compare-label">&#x274C; 重構前 (v3)</div><div style="font-size:13px;line-height:1.7;color:#7f1d1d;"><div style="font-weight:700;margin-bottom:6px;">500 行 if-else 硬編碼</div><ul style="padding-left:16px;margin:0;"><li>每種紀念品寫死在程式碼裡</li><li>新增品項 = 改程式 + 重新部署</li><li>估價邏輯與資料高度耦合</li><li>維護成本隨品項數線性成長</li></ul></div></div>
-      <div class="compare-after"><div class="compare-label">&#x2705; 重構後 (v5)</div><div style="font-size:13px;line-height:1.7;color:#14532d;"><div style="font-weight:700;margin-bottom:6px;">200 行 JSON 樹狀 DFS 演算法</div><ul style="padding-left:16px;margin:0;"><li>知識庫在 <code>tree.json</code>，非工程師也能編輯</li><li>新增品項 = 改 JSON，程式碼零修改</li><li>商業邏輯與知識庫完全解耦</li><li>視覺化編輯器一鍵試算全部 CP 值</li></ul></div></div>
-    </div>
+    <img src="images/stock/twstock_gift_tree_readme_algorithm.png" alt="Knowledge Tree Algorithm" style="max-width: 100%; max-height: 60vh; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
   </div>
-  <div class="slide-num">23 / 40</div>
+  <div class="slide-num"></div>
 </div>

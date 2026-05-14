@@ -33,6 +33,7 @@ const portfolioConfig = [
       "slides/etf/etf-ai-rag-pipeline.html",
       "slides/etf/etf-ai-product---wizard.html",
       "slides/etf/etf-ai-product---report.html",
+      "slides/etf/etf-ai-product---breakdown.html",
       "slides/etf/etf-ai-backend.html",
       "slides/etf/etf-ai-summary.html"
     ]
@@ -44,8 +45,11 @@ const portfolioConfig = [
       "slides/stock/stock-gift-pain-points.html",
       "slides/stock/stock-gift-product---homepage.html",
       "slides/stock/stock-gift-product-details-1.html",
+      "slides/stock/stock-gift-product-filter.html",
+      "slides/stock/stock-gift-product-5star.html",
       "slides/stock/stock-gift-product-details-2.html",
       "slides/stock/stock-gift-tech---refactor.html",
+      "slides/stock/stock-gift-tech---valuation.html",
       "slides/stock/stock-gift-tech---serverless.html",
       "slides/stock/stock-gift-automation.html",
       "slides/stock/stock-gift-summary.html"

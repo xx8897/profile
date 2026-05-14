@@ -2,10 +2,82 @@
   <div class="slide-inner" style="display: flex; flex-direction: column; justify-content: center;">
     <div class="content-header">
       <div class="section-label">STOCK GIFT EVALUATOR &mdash; TECH</div>
-      <h2>知識樹引擎：DFS 演算法設計</h2>
-      <p style="margin-top: 12px; font-size: 15px; color: #475569; line-height: 1.6; max-width: 900px;"><b>1. DFS 搜尋：</b>精確比對關鍵字，尋找最深層匹配節點。<br><b>2. 屬性繼承：</b>從節點往上回溯，繼承底價與價值倍數。<br><b>3. 成本扣除：</b>回溯祖先節點的 Tag，自動扣除代領成本（如實體品 -20 元）。</p>
+      <h2>知識樹引擎：DFS 演算法三步驟</h2>
     </div>
-    <img src="images/stock/twstock_gift_tree_readme_algorithm.png" alt="Knowledge Tree Algorithm" style="max-width: 100%; max-height: 60vh; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+    <div class="two-col" style="align-items: stretch; margin-top: 8px;">
+      <!-- Left: 3-step flow -->
+      <div style="display:flex; flex-direction:column; gap:14px; justify-content:space-between;">
+        <!-- Step 1 -->
+        <div style="background:white; border-radius:14px; padding:20px; border:2px solid var(--primary); box-shadow:0 4px 12px rgba(43,94,167,0.08); display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:36px; height:36px; border-radius:50%; background:var(--primary); color:white; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">①</div>
+          <div>
+            <div style="font-weight:700; color:var(--primary); font-size:15px; margin-bottom:6px;">DFS 深度優先搜尋</div>
+            <div style="font-size:13px; color:var(--text-sec); line-height:1.7;">透過 <code style="background:#eef2ff; padding:2px 6px; border-radius:4px;">keywords</code>、<code style="background:#eef2ff; padding:2px 6px; border-radius:4px;">keywords_and</code>、<code style="background:#eef2ff; padding:2px 6px; border-radius:4px;">keywords_not</code> 精確比對紀念品描述，尋找 JSON 樹中<strong>最深層的匹配節點</strong>。越精確的描述，落點越深，估值越準確。</div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div style="background:white; border-radius:14px; padding:20px; border:2px solid var(--success); box-shadow:0 4px 12px rgba(39,174,96,0.08); display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:36px; height:36px; border-radius:50%; background:var(--success); color:white; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">②</div>
+          <div>
+            <div style="font-weight:700; color:var(--success); font-size:15px; margin-bottom:6px;">屬性繼承（向上回溯）</div>
+            <div style="font-size:13px; color:var(--text-sec); line-height:1.7;">從匹配節點往祖先節點回溯，繼承第一個設定好的 <code style="background:#f0fdf4; padding:2px 6px; border-radius:4px;">base_value</code>（底價）與 <code style="background:#f0fdf4; padding:2px 6px; border-radius:4px;">value_multiplier</code>（倍數）。子節點可覆蓋父節點的屬性，實現精細化估值。</div>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div style="background:white; border-radius:14px; padding:20px; border:2px solid var(--warning); box-shadow:0 4px 12px rgba(243,156,18,0.08); display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:36px; height:36px; border-radius:50%; background:var(--warning); color:white; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">③</div>
+          <div>
+            <div style="font-weight:700; color:#d97706; font-size:15px; margin-bottom:6px;">Tag 成本扣除</div>
+            <div style="font-size:13px; color:var(--text-sec); line-height:1.7;">回溯所有祖先節點的 <code style="background:#fef9c3; padding:2px 6px; border-radius:4px;">tags</code>，自動決定代領成本：<strong>票券類 −15 元</strong> / <strong>實體品 −20 元</strong>。最終估值 = 底價 × 倍數 − 代領成本。</div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Example table -->
+      <div style="display:flex; flex-direction:column;">
+        <div class="problem-section" style="border-left:4px solid var(--accent); background:#f8fafc; flex:1; margin-bottom:0;">
+          <div class="problem-title"><span class="icon">📊</span> 典型估值範例</div>
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+            <thead>
+              <tr style="background:var(--primary-light);">
+                <th style="padding:8px 10px; text-align:left; color:var(--primary-dark); border-radius:6px 0 0 0; font-weight:700;">品名</th>
+                <th style="padding:8px 10px; text-align:center; color:var(--primary-dark); font-weight:700;">底價</th>
+                <th style="padding:8px 10px; text-align:center; color:var(--primary-dark); font-weight:700;">代領</th>
+                <th style="padding:8px 10px; text-align:center; color:var(--primary-dark); border-radius:0 6px 0 0; font-weight:700;">最終估值</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #e2e8f0;">
+                <td style="padding:10px; color:var(--text);">王品股東大禮包</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">2,800</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">−15</td>
+                <td style="padding:10px; text-align:center; font-weight:800; color:var(--accent);">1,945</td>
+              </tr>
+              <tr style="border-bottom:1px solid #e2e8f0; background:#fafafa;">
+                <td style="padding:10px; color:var(--text);">六福村主題樂園門票</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">799 ×0.7</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">−15</td>
+                <td style="padding:10px; text-align:center; font-weight:800; color:var(--primary);">544</td>
+              </tr>
+              <tr style="border-bottom:1px solid #e2e8f0;">
+                <td style="padding:10px; color:var(--text);">全家超商禮物卡 35 元</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">35</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">−15</td>
+                <td style="padding:10px; text-align:center; font-weight:800; color:var(--text);">20</td>
+              </tr>
+              <tr style="background:#fafafa;">
+                <td style="padding:10px; color:var(--text);">不鏽鋼燉煮鍋</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">300</td>
+                <td style="padding:10px; text-align:center; color:var(--text-sec);">−20</td>
+                <td style="padding:10px; text-align:center; font-weight:800; color:var(--text);">280</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:16px; padding:12px 16px; background:var(--accent-light); border-radius:8px; font-size:13px; color:var(--accent); font-weight:600; line-height:1.6;">
+            💡 同一品名在不同樹節點的落點深度，直接決定估值精準度。品項描述越詳細，CP 值越接近市場真實價值。
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="slide-num"></div>
 </div>

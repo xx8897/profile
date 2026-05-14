@@ -1,11 +1,61 @@
 <div class="slide bg-light is-light">
-  <div class="slide-inner" style="display:flex; flex-direction:column; justify-content:center; ">
+  <div class="slide-inner" style="display:flex; flex-direction:column; justify-content:center;">
     <div class="content-header">
       <div class="section-label">STOCK GIFT EVALUATOR &mdash; PRODUCT</div>
-      <h2>產品展示：知識樹維護與 README 整合</h2>
-      <p style="margin-top: 12px; font-size: 16px; color: #475569; line-height: 1.6; max-width: 800px;">將「規則知識」與「程式邏輯」完全分離。所有分類標準存放於可視覺化編輯的 JSON 樹，非工程師也能透過瀏覽器直接調整規則，修改後一鍵重新試算全市場 CP 值，無需動到任何程式碼。</p>
+      <h2>知識樹維護：規則與邏輯完全解耦</h2>
     </div>
-    <img src="images/stock/twstock_gift_tree_readme_editor.png" alt="Stock Detail 2" style="max-width:100%; max-height:65vh; object-fit:contain; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+    <div class="two-col" style="align-items: stretch; margin-top: 8px;">
+      <!-- Left: Core concept -->
+      <div style="display:flex; flex-direction:column;">
+        <div class="problem-section" style="border-left:4px solid var(--primary); flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="problem-title"><span class="icon">🌳</span> 設計理念：知識與邏輯分離</div>
+            <div style="font-size:14px; line-height:1.8; color:var(--text-sec); margin-bottom:16px;">
+              傳統做法將品項規則寫死在程式碼中，每次新增紀念品種類都需要改程式、重新測試。<br><br>
+              V5 引擎將所有分類知識獨立成 <strong style="color:var(--primary);">tree.json</strong>，Python 引擎只負責跑演算法，完全不含任何品項硬編碼。
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="padding:10px 16px; border-radius:8px; background:var(--primary-light); color:var(--primary-dark); font-weight:700; font-size:13px; flex-shrink:0;">📁 gift_tree/tree.json</div>
+              <div style="font-size:13px; color:var(--text-sec);">「大腦」— 可視覺化編輯的 JSON 規則庫</div>
+            </div>
+            <div style="text-align:center; color:var(--accent); font-size:13px; font-weight:700;">↕ DFS 深度優先搜尋</div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="padding:10px 16px; border-radius:8px; background:var(--accent-light); color:var(--accent); font-weight:700; font-size:13px; flex-shrink:0;">⚙️ valuation_v5.py</div>
+              <div style="font-size:13px; color:var(--text-sec);">「執行器」— 通用演算法引擎，不含品項知識</div>
+            </div>
+            <div style="text-align:center; color:var(--accent); font-size:13px; font-weight:700;">↓ 輸出</div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="padding:10px 16px; border-radius:8px; background:#fef3c7; color:#92400e; font-weight:700; font-size:13px; flex-shrink:0;">💰 CP 值</div>
+              <div style="font-size:13px; color:var(--text-sec);">自動同步至 Supabase，前端即時讀取</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Benefits -->
+      <div style="display:flex; flex-direction:column;">
+        <div class="problem-section" style="border-left:4px solid var(--accent); background:#f8fafc; flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="problem-title"><span class="icon">✅</span> 解耦後的工程優勢</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="background:white; border-radius:10px; padding:16px; border:1px solid #e2e8f0;">
+              <div style="font-weight:700; color:var(--primary); font-size:14px; margin-bottom:4px;">🔧 非工程師也能維護</div>
+              <div style="font-size:13px; color:var(--text-sec); line-height:1.6;">執行 <code style="background:#f1f5f9; padding:2px 6px; border-radius:4px;">python gift_tree/app.py</code> 開啟本地視覺化編輯器，直接在瀏覽器拖曳調整分類規則。</div>
+            </div>
+            <div style="background:white; border-radius:10px; padding:16px; border:1px solid #e2e8f0;">
+              <div style="font-weight:700; color:var(--accent); font-size:14px; margin-bottom:4px;">⚡ 一鍵重算全市場 CP 值</div>
+              <div style="font-size:13px; color:var(--text-sec); line-height:1.6;">修改完 JSON 規則後，點擊「重新試算」，系統自動跑完 800+ 支股票的 CP 值並更新資料庫。</div>
+            </div>
+            <div style="background:white; border-radius:10px; padding:16px; border:1px solid #e2e8f0;">
+              <div style="font-weight:700; color:#d97706; font-size:14px; margin-bottom:4px;">📦 新增品項零改程式碼</div>
+              <div style="font-size:13px; color:var(--text-sec); line-height:1.6;">新增超商禮物卡面額、新餐廳票券種類，只需編輯 JSON 節點，引擎自動繼承估值邏輯。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="slide-num"></div>
 </div>

@@ -2,10 +2,74 @@
   <div class="slide-inner" style="display: flex; flex-direction: column; justify-content: center;">
     <div class="content-header">
       <div class="section-label">STOCK GIFT EVALUATOR &mdash; TECH</div>
-      <h2>技術深度：紀念品 CP 值估值模型</h2>
-      <p style="margin-top: 12px; font-size: 15px; color: #475569; line-height: 1.6; max-width: 900px;">核心估值公式：<b>(五年總估值 ÷ 最近價格) × (發放次數 ÷ 5)</b>。系統會自動處理極端異常值，並將最終結果轉換為 1~5 星的推薦等級，確保 CP 值排名具備真實參考價值，輔助量化決策。</p>
+      <h2>CP 值估值模型：量化紀念品的數學框架</h2>
     </div>
-    <img src="images/stock/twstock_valuation_model_explanation.png" alt="Valuation Model" style="max-width: 100%; max-height: 60vh; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto;">
+    <div class="two-col" style="align-items: stretch; margin-top: 8px;">
+      <!-- Left: Formula display -->
+      <div style="display:flex; flex-direction:column;">
+        <div class="problem-section" style="border-left:4px solid var(--primary); flex:1; margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div class="problem-title"><span class="icon">🧮</span> 核心估值公式</div>
+            <!-- Big formula -->
+            <div style="background: linear-gradient(135deg, var(--primary-light), #e0eaff); border-radius:12px; padding:24px; text-align:center; margin-bottom:20px;">
+              <div style="font-size:15px; color:var(--primary-dark); font-weight:600; margin-bottom:10px;">CP 值 =</div>
+              <div style="font-size:17px; color:var(--primary); font-weight:800; line-height:1.8;">
+                五年總估值 ÷ 最近股價<br>
+                <span style="font-size:22px;">×</span><br>
+                發放次數 ÷ 5
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:flex-start; gap:12px;">
+              <div style="width:8px; height:8px; border-radius:50%; background:var(--primary); flex-shrink:0; margin-top:6px;"></div>
+              <div style="font-size:13px; color:var(--text-sec); line-height:1.6;"><strong>五年總估值</strong>：對近五年發放的紀念品，逐一用知識樹引擎估算市場價值後加總</div>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:12px;">
+              <div style="width:8px; height:8px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:6px;"></div>
+              <div style="font-size:13px; color:var(--text-sec); line-height:1.6;"><strong>最近股價</strong>：透過 FinMind API 自動抓取，每週三次 GitHub Actions 定時更新</div>
+            </div>
+            <div style="display:flex; align-items:flex-start; gap:12px;">
+              <div style="width:8px; height:8px; border-radius:50%; background:var(--warning); flex-shrink:0; margin-top:6px;"></div>
+              <div style="font-size:13px; color:var(--text-sec); line-height:1.6;"><strong>發放次數 ÷ 5</strong>：衡量穩定性，五年皆發放則係數為 1，僅一年發放則為 0.2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Output tiers & pipeline -->
+      <div style="display:flex; flex-direction:column; gap:14px; justify-content:space-between;">
+        <!-- Rating output -->
+        <div class="problem-section" style="border-left:4px solid var(--accent); background:#f8fafc; padding:20px; margin-bottom:0;">
+          <div class="problem-title"><span class="icon">⭐</span> 輸出：1~5 星推薦等級</div>
+          <div style="display:flex; gap:6px; margin-top:4px;">
+            <div style="flex:1; text-align:center; padding:10px 4px; border-radius:8px; background:#fee2e2; font-size:22px;">⭐</div>
+            <div style="flex:1; text-align:center; padding:10px 4px; border-radius:8px; background:#fef9c3; font-size:22px;">⭐⭐</div>
+            <div style="flex:1; text-align:center; padding:10px 4px; border-radius:8px; background:#fef3c7; font-size:22px;">⭐⭐⭐</div>
+            <div style="flex:1; text-align:center; padding:10px 4px; border-radius:8px; background:#dcfce7; font-size:22px;">⭐⭐⭐⭐</div>
+            <div style="flex:1; text-align:center; padding:10px 4px; border-radius:8px; background:var(--accent-light); font-size:22px;">⭐⭐⭐⭐⭐</div>
+          </div>
+          <div style="font-size:12px; color:var(--text-sec); text-align:center; margin-top:8px;">系統自動處理極端異常值後，依 CP 值分位數轉換為 1~5 星</div>
+        </div>
+        <!-- ETL Pipeline -->
+        <div class="problem-section" style="border-left:4px solid var(--warning); background:#fefce8; margin-bottom:0; flex:1;">
+          <div class="problem-title"><span class="icon">🔄</span> ETL 自動化管線</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="padding:7px 12px; border-radius:6px; background:#dcfce7; color:var(--success); font-weight:700; font-size:12px; flex-shrink:0;">🟢 Extract</div>
+              <div style="font-size:12px; color:var(--text-sec);">FinMind API 抓取股價 + 本地紀念品發放紀錄</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="padding:7px 12px; border-radius:6px; background:#fef9c3; color:#a16207; font-weight:700; font-size:12px; flex-shrink:0;">🟡 Transform</div>
+              <div style="font-size:12px; color:var(--text-sec);">V5 核心估值邏輯 → 1~5 星評級</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="padding:7px 12px; border-radius:6px; background:#dbeafe; color:var(--primary); font-weight:700; font-size:12px; flex-shrink:0;">🔵 Load</div>
+              <div style="font-size:12px; color:var(--text-sec);">結果回寫 Supabase，前端即時讀取最新資料</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="slide-num"></div>
 </div>

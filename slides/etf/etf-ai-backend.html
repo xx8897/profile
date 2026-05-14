@@ -13,8 +13,8 @@
     </div>
   </div>
   
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:24px; border-radius:12px;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;">
+    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:24px; border-radius:12px; display:flex; flex-direction:column;">
       <h3 style="color:var(--accent); margin-bottom:12px; font-size:18px;">🧠 檢索增強生成 (RAG) 管線</h3>
       <div style="color:rgba(255,255,255,0.7); line-height:1.7; font-size:14px;">
         1. 使用 <b>ChromaDB</b> 作為本地向量資料庫。<br>
@@ -23,7 +23,7 @@
         4. <b>後端防禦性處理層</b>：對 AI 生成的 JSON 進行嚴格清洗與結構驗證。
       </div>
     </div>
-    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:24px; border-radius:12px;">
+    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:24px; border-radius:12px; display:flex; flex-direction:column;">
       <h3 style="color:var(--accent); margin-bottom:12px; font-size:18px;">單一事實來源 (SSOT)</h3>
       <div style="color:rgba(255,255,255,0.7); line-height:1.7; font-size:14px;">
         在歷經網頁爬蟲與各類不穩定的 OpenAPI 探勘後，架構最終收斂至<b>使用者提供的單一 Excel 作為知識庫</b>。這消除了外部 API 不穩定的技術風險，讓系統在封閉環境下依然能提供高品質的量化分析。

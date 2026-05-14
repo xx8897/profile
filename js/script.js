@@ -72,7 +72,6 @@ const portfolioConfig = [
       "slides/misc/exhibit-chapter.html",
       "slides/misc/exhibit-1.html",
       "slides/misc/exhibit-2.html",
-      "slides/misc/exhibit-3.html",
       "slides/misc/exhibit-tech.html"
     ]
   },

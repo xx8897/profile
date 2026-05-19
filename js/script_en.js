@@ -95,6 +95,16 @@ const deck = document.getElementById('deck');
 const dotsContainer = document.getElementById('navDots');
 const loadingScreen = document.getElementById('loadingScreen');
 
+const translationFiles = [
+  'js/translations/introduction.json',
+  'js/translations/homelab.json',
+  'js/translations/etf.json',
+  'js/translations/stock.json',
+  'js/translations/synthforge.json',
+  'js/translations/exhibit.json',
+  'js/translations/experience.json'
+];
+
 // 套用翻譯到 raw HTML 字串
 function applyTranslationsToHtml(htmlStr) {
   let translated = htmlStr;
@@ -106,9 +116,14 @@ function applyTranslationsToHtml(htmlStr) {
 
 async function init() {
   try {
-    // 先載入翻譯 JSON
-    const transRes = await fetch('js/translations_en.json');
-    translations = await transRes.json();
+    // 載入多個翻譯 JSON 檔案並合併為單一 translations 物件
+    const transResponses = await Promise.all(
+      translationFiles.map(file => fetch(file).then(res => {
+        if (!res.ok) throw new Error(`Failed to load translation file: ${file}`);
+        return res.json();
+      }))
+    );
+    translations = Object.assign({}, ...transResponses);
 
     // 載入所有投影片
     const slidePromises = slideFiles.map(async (file, index) => {

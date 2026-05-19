@@ -90,6 +90,7 @@ const slideFiles = portfolioConfig.flatMap(section => section.slides);
 let currentSlide = 0;
 let slides = [];
 let translations = {};
+let sortedTranslationKeys = [];
 
 const deck = document.getElementById('deck');
 const dotsContainer = document.getElementById('navDots');
@@ -108,8 +109,8 @@ const translationFiles = [
 // 套用翻譯到 raw HTML 字串
 function applyTranslationsToHtml(htmlStr) {
   let translated = htmlStr;
-  for (const [zh, en] of Object.entries(translations)) {
-    translated = translated.split(zh).join(en);
+  for (const zh of sortedTranslationKeys) {
+    translated = translated.split(zh).join(translations[zh]);
   }
   return translated;
 }
@@ -124,6 +125,9 @@ async function init() {
       }))
     );
     translations = Object.assign({}, ...transResponses);
+    
+    // 依照 Key 字串長度由長到短排序，防止長句在替換前先被短字彙切斷
+    sortedTranslationKeys = Object.keys(translations).sort((a, b) => b.length - a.length);
 
     // 載入所有投影片
     const slidePromises = slideFiles.map(async (file, index) => {

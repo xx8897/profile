@@ -95,35 +95,13 @@ const deck = document.getElementById('deck');
 const dotsContainer = document.getElementById('navDots');
 const loadingScreen = document.getElementById('loadingScreen');
 
-// 套用翻譯到 DOM 節點（遞迴處理 text nodes）
-function applyTranslations(el) {
-  if (!el) return;
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-  const textNodes = [];
-  let node;
-  while ((node = walker.nextNode())) {
-    textNodes.push(node);
+// 套用翻譯到 raw HTML 字串
+function applyTranslationsToHtml(htmlStr) {
+  let translated = htmlStr;
+  for (const [zh, en] of Object.entries(translations)) {
+    translated = translated.split(zh).join(en);
   }
-  textNodes.forEach(textNode => {
-    let text = textNode.nodeValue;
-    for (const [zh, en] of Object.entries(translations)) {
-      if (text.includes(zh)) {
-        text = text.split(zh).join(en);
-      }
-    }
-    textNode.nodeValue = text;
-  });
-
-  // 也處理 alt 屬性
-  el.querySelectorAll('[alt]').forEach(img => {
-    let alt = img.getAttribute('alt');
-    for (const [zh, en] of Object.entries(translations)) {
-      if (alt.includes(zh)) {
-        alt = alt.split(zh).join(en);
-      }
-    }
-    img.setAttribute('alt', alt);
-  });
+  return translated;
 }
 
 async function init() {
@@ -136,7 +114,11 @@ async function init() {
     const slidePromises = slideFiles.map(async (file, index) => {
       const response = await fetch(file);
       if (!response.ok) throw new Error(`Failed to load ${file}`);
-      const html = await response.text();
+      let html = await response.text();
+      
+      // 在轉換為 DOM 之前，直接替換字串
+      html = applyTranslationsToHtml(html);
+      
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = html;
 
@@ -147,8 +129,6 @@ async function init() {
         if (slideNum) {
           slideNum.textContent = `${(index + 1).toString().padStart(2, '0')} / ${slideFiles.length.toString().padStart(2, '0')}`;
         }
-        // 套用翻譯
-        applyTranslations(slideDiv);
         return slideDiv;
       }
       return null;

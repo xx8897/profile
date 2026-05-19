@@ -121,5 +121,17 @@
   "&#x2195; GitHub Actions 定時爬蟲": "&#x2195; GitHub Actions Scheduled Crawler",
   "&#x2195; V5 引擎計算 CP 值": "&#x2195; V5 Engine Computes CP Value",
   "&#x1F4CA; 專案效益與指標": "&#x1F4CA; Project Impact & Metrics",
-  "⚙️ GitHub Actions 零成本自動化": "⚙️ GitHub Actions Zero-Cost Automation"
+  "⚙️ GitHub Actions 零成本自動化": "⚙️ GitHub Actions Zero-Cost Automation",
+  "解決方案": "Solutions",
+  "&#x2705; 解決方案": "&#x2705; Solutions",
+  "CP 值 =": "CP Value =",
+  "系統自動處理極端異常值後，依 CP 值分位數轉換為 1~5 星": "System automatically processes extreme outliers, converting CP value quantiles into 1-5 star ratings.",
+  "← 「大腦」可視化 JSON 分類規則樹": "← \"Brain\" visualizable JSON rule tree",
+  "(DFS 深度優先搜尋 + 屬性繼承)": "(DFS + Attribute Inheritance)",
+  "← 「執行器」通用演算法引擎，產出最終 CP 值": "← \"Executor\" generic algorithm engine, outputs CP values",
+  "FinMind API 抓取股價 + 本地紀念品發放紀錄": "FinMind API fetches stock prices + Local gift payout records",
+  "V5 核心估值邏輯 → 1~5 星評級": "V5 Core Valuation Logic → 1-5 Star Ratings",
+  "結果回寫 Supabase，前端即時讀取最新資料": "Writes results back to Supabase; frontend reads latest data in real-time",
+  "⭐ 輸出：1~5 星推薦等級": "⭐ Output: 1-5 Star Ratings",
+  "🔄 ETL 自動化管線": "🔄 ETL Automation Pipeline"
 }

@@ -27,5 +27,15 @@
   "SynthForge 核心在於定義開發者與 AI 代理之間的協作邊界。22 條治理規則明確區分了人類與 Agent 的職責：由 YAML 聲明任務、AI 規劃並執行、人類進行最終審查，達成 10x 開發效率的同時確保品質。": "SynthForge defines collaboration boundaries between developers and AI agents. The 22 governance rules separate human/agent duties: YAML declares tasks, AI plans & executes, humans conduct final reviews — achieving 10x velocity while maintaining quality.",
   "成果與反思": "Results & Reflections",
   "架構亮點": "Architecture Highlights",
-  "以 YAML 聲明工作流，將底層 CLI 封裝。提供 TDD 自動化測試、自動化 Bug 修復與靜態程式碼分析，確保生成程式碼無明顯壞味道與安全漏洞。": "Declares workflows via YAML, wrapping underlying CLI. Offers TDD test automation, automated bug fixing, and static analysis, ensuring generated code is free from bad smells or security vulnerabilities."
+  "以 YAML 聲明工作流，將底層 CLI 封裝。提供 TDD 自動化測試、自動化 Bug 修復與靜態程式碼分析，確保生成程式碼無明顯壞味道與安全漏洞。": "Declares workflows via YAML, wrapping underlying CLI. Offers TDD test automation, automated bug fixing, and static analysis, ensuring generated code is free from bad smells or security vulnerabilities.",
+  "架構思維先於實作": "Architectural Thinking over Implementation",
+  "SynthForge 的價值不在於能跑起來，在於它提出的問題和設計選擇。22 條治理規則的定義、Skills vs Agents 的界線劃分、YAML 宣告式工作流引擎的設計 &mdash;&mdash; 這些回答比最終的 placeholder 更有參考價值。": "The value of SynthForge lies not in running, but in the questions it raises and design choices it makes. Defining 22 governance rules, separating Skills vs Agents, and designing a YAML declarative workflow engine — these answers are far more valuable than the final placeholders.",
+  "帶得走的經驗": "Takeaways",
+  "治理先行是對的，但 22 條太多，精煉為 7-10 條更可持續": "Governance first is correct, but 22 rules are too many. Distilling them to 7-10 rules is more sustainable.",
+  "Progressive Disclosure 真的有效": "Progressive Disclosure is highly effective.",
+  "Executor placeholder 是策略性推遲，先定義接口再漸進填充": "Executor placeholder is a strategic deferral: define interfaces first, fill progressively.",
+  "YAML 宣告式比命令式更可讀，但純 YAML 不夠，需要條件邏輯": "YAML declarative approach is more readable than imperative, but pure YAML is insufficient; condition logic is needed.",
+  "task.md 作為 Mission Control 是最佳實踐": "Using task.md as Mission Control is a best practice.",
+  "&#x1F3AF;": "🎯",
+  "&#x1F4D1;": "📑"
 }

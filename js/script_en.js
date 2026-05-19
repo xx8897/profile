@@ -108,9 +108,11 @@ const translationFiles = [
 
 // 套用翻譯到 raw HTML 字串
 function applyTranslationsToHtml(htmlStr) {
-  let translated = htmlStr;
+  // 將 HTML 字串中的 Windows CRLF 統一轉為 LF，以對齊 JSON 的解析格式
+  let translated = htmlStr.replace(/\r\n/g, '\n');
   for (const zh of sortedTranslationKeys) {
-    translated = translated.split(zh).join(translations[zh]);
+    const zhNorm = zh.replace(/\r\n/g, '\n');
+    translated = translated.split(zhNorm).join(translations[zh]);
   }
   return translated;
 }
